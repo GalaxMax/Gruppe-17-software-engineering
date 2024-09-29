@@ -1,7 +1,6 @@
 package main.java;
 import java.util.Scanner;
 public class SmartInput {
-
         private Scanner deviceInput;
         public SmartInput() {
                 deviceInput = new Scanner(System.in);
