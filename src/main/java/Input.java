@@ -16,7 +16,7 @@ public class Input {
                 }
         }
         public static void main(String[] args) {
-                DeviceInputHandler handler = new DeviceInputHandler();
+                Input handler = new Input();
                 String input = handler.readInput();
                 System.out.println(input);
                 handler.closeDevice();
