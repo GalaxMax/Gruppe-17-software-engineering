@@ -1,8 +1,9 @@
+package main.java;
 import java.util.Scanner;
-public class Input {
+public class SmartInput {
 
         private Scanner deviceInput;
-        public Input() {
+        public SmartInput() {
                 deviceInput = new Scanner(System.in);
         }
         public String readInput() {
@@ -16,9 +17,9 @@ public class Input {
                 }
         }
         public static void main(String[] args) {
-                Input handler = new Input();
-                String input = handler.readInput();
-                System.out.println(input);
+                SmartInput handler = new SmartInput();
+                String Smartinput = handler.readInput();
+                System.out.println(Smartinput);
                 handler.closeDevice();
         }
 
