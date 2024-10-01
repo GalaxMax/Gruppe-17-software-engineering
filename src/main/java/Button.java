@@ -8,3 +8,8 @@ abstract class Button {
         this.butttonValue = butttonValue;
     }
 }
+class button_light_on extends Button {
+    public button_light_on(String label, int butttonValue) {
+        super(label, butttonValue);
+    }
+}
