@@ -1,4 +1,3 @@
-package main.java;
 
 abstract class Button {
     private String label;
