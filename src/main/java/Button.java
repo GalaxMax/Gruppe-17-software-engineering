@@ -13,6 +13,7 @@ abstract class Button {
     }
     List<Button> buttons = new ArrayList<Button>();
     public void listobjects(){
+        
     }
 }
 class button_light_on extends Button {
