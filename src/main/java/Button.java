@@ -13,3 +13,8 @@ class button_light_on extends Button {
         super(label, butttonValue);
     }
 }
+class button_light_off extends Button {
+    public button_light_off(String label, int butttonValue) {
+        super(label, butttonValue);
+    }
+}
