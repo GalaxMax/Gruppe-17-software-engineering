@@ -16,9 +16,12 @@ public class SmartInput {
         JLabel textLabel;
 
         private Scanner deviceInput;
+        private IoTSystem system;
 
-        public SmartInput() {
+        public SmartInput(IoTSystem system) {
                 deviceInput = new Scanner(System.in);
+                this.system = system;
+
                 Font font = new Font("Times New Roman", Font.PLAIN, 28);
 
                 KeyHandler kHandler = new KeyHandler();
@@ -70,6 +73,12 @@ public class SmartInput {
                                         break;
                                 case KeyEvent.VK_A:
                                         textLabel.setText("AAAAAAAAAAAA");
+                                        break;
+                                case KeyEvent.VK_O:
+                                        system.getArrIoTLights()[0].updateLight(true);
+                                        break;
+                                case KeyEvent.VK_P:
+                                        system.getArrIoTLights()[0].updateLight(false);
                                         break;
                                 default:
                                         textLabel.setText("Kul knapp!");

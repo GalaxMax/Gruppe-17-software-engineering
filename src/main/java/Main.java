@@ -1,10 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        new SmartInput();
-        Output testOutput = new Output("4096");
-        System.out.println(testOutput);
-        System.out.println(testOutput.getOutputToInt());
+
+        IoTSystem IoT = new IoTSystem();
+        new SmartInput(IoT);
+
         //Placeholder buttons
         button_light_toggle buttonLightToggle = new button_light_toggle("yoyo", false);
         button_light_toggle buttonLightToggle2 = new button_light_toggle("jaja", false);
