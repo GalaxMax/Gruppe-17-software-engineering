@@ -8,6 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import output.Output;
+import profiles.DefaultProfile;
+
 public class SmartInput {
 
         JFrame FK; // FK = Fjern-Kontroll
@@ -15,8 +18,9 @@ public class SmartInput {
         JLabel textLabel;
 
         private Output outPut = new Output();
-
         private IoTSystem system;
+
+        DefaultProfile profil = new DefaultProfile(outPut);
 
         public SmartInput(IoTSystem system) {
                 this.system = system;
@@ -59,20 +63,26 @@ public class SmartInput {
                 public void keyPressed(KeyEvent e) {
 
                         switch(e.getKeyCode()){
-                                case KeyEvent.VK_1:
-                                        outPut.textLabel.setText("1!");
+                                case KeyEvent.VK_1: // Denne kommer til å bli profil 1 knapp.
+                                        outPut.textLabel.setText("Profil 1!");
                                         break;
-                                case KeyEvent.VK_2:
-                                        outPut.textLabel.setText("2. wow!");
+                                case KeyEvent.VK_2: // Denne kommer til å bli profil 2 knapp.
+                                        outPut.textLabel.setText("Profil 2!");
+                                        break;
+                                case KeyEvent.VK_3: // Denne kommer til å bli profil 3 knapp.
+                                        outPut.textLabel.setText("Profil 3!");
                                         break;
                                 case KeyEvent.VK_LEFT:
-                                        outPut.textLabel.setText("Det var venstre, gitt!");
+                                        profil.arrowLeft();
                                         break;
                                 case KeyEvent.VK_RIGHT:
-                                        outPut.textLabel.setText("Høyre, nice!");
+                                        profil.arrowRight();
                                         break;
                                 case KeyEvent.VK_A:
-                                        outPut.textLabel.setText("AAAAAAAAAAAA");
+                                        profil.keyA();
+                                        break;
+                                case KeyEvent.VK_C:
+                                        profil.keyC();
                                         break;
                                 case KeyEvent.VK_O:
                                         system.getArrIoTLights()[0].updateLight(true);
