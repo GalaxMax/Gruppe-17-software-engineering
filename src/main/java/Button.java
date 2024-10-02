@@ -5,8 +5,8 @@ import java.util.List;
 
 abstract class Button {
     public String label;
-    public int butttonValue = 0;
-    public Button(String label, int butttonValue) {
+    public boolean butttonValue = false;
+    public Button(String label, boolean butttonValue) {
         this.label = label;
         this.butttonValue = butttonValue;
         buttons.add(this);
@@ -20,15 +20,17 @@ abstract class Button {
     }
     public void clickEvent(){
         for (Button button : buttons) {
-            button.butttonValue = -1;
-            System.out.println("Button " + button.label + " clicked " + button.butttonValue);
+            if (button != this) {
+                button.butttonValue = false;
+                System.out.println("Button " + button.label + " clicked " + button.butttonValue);
+            }
         }
-        this.butttonValue += 2;
+        this.butttonValue = true;
         System.out.println("Button " + this.label + " clicked " + this.butttonValue);
     }
 }
 class button_light_toggle extends Button {
-    public button_light_toggle(String label, int butttonValue) {
+    public button_light_toggle(String label, boolean butttonValue) {
         super(label, butttonValue);
     }
 }
