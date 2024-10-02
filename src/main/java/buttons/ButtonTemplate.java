@@ -12,4 +12,7 @@ abstract class ButtonTemplate {
         buttons.add(this);
     }
     List<ButtonTemplate> buttons = new ArrayList<ButtonTemplate>();
+    public void listObjects(){
+
+    }
 }
