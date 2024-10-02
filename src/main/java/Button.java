@@ -4,15 +4,15 @@ import java.util.Collection;
 import java.util.List;
 
 abstract class Button {
-    private String label;
-    private int butttonValue = 0;
+    public String label;
+    public int butttonValue = 0;
     public Button(String label, int butttonValue) {
         this.label = label;
         this.butttonValue = butttonValue;
         buttons.add(this);
         listobjects();
     }
-    List<Button> buttons = new ArrayList<Button>();
+    static List<Button> buttons = new ArrayList<Button>();
     public void listobjects(){
         for (Button button : buttons) {
             System.out.println("Created button " + button.label);
@@ -21,9 +21,10 @@ abstract class Button {
     public void clickEvent(){
         for (Button button : buttons) {
             button.butttonValue = -1;
-            this.butttonValue += 2;
-            System.out.println("Button " + button.label + " clicked " + this.butttonValue);
+            System.out.println("Button " + button.label + " clicked " + button.butttonValue);
         }
+        this.butttonValue += 2;
+        System.out.println("Button " + this.label + " clicked " + this.butttonValue);
     }
 }
 class button_light_toggle extends Button {
