@@ -75,10 +75,10 @@ public class SmartInput {
                                         textLabel.setText("AAAAAAAAAAAA");
                                         break;
                                 case KeyEvent.VK_O:
-                                        system.getArrIoTLights()[0].updateLight(1);
+                                        system.getArrIoTLights()[0].updateLight(true);
                                         break;
                                 case KeyEvent.VK_P:
-                                        system.getArrIoTLights()[1].updateLight(0);
+                                        system.getArrIoTLights()[0].updateLight(false);
                                         break;
                                 default:
                                         textLabel.setText("Kul knapp!");

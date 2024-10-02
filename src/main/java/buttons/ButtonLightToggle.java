@@ -6,16 +6,20 @@ import java.awt.*;
 public class ButtonLightToggle extends ButtonTemplate {
     private JPanel lightID;
 
-    public ButtonLightToggle(String label, int buttonValue, JPanel lightID) {
+    public ButtonLightToggle(String label, boolean buttonValue, JPanel lightID) {
         super(label, buttonValue);
         this.lightID = lightID;
     }
-    public void updateLight(int onOrOff) {
+    public void updateLight(boolean onOrOff) {
         setButtonValue(onOrOff);
-        if (getButtonValue() == 1) {
+        if (getButtonValue()) {
             lightOn();
+            System.out.println("Lights are on!");
         }
-        else lightOff();
+        else {
+            lightOff();
+            System.out.println("Lights are off!");
+        }
     }
 
     private void lightOn() {

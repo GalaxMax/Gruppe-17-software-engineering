@@ -5,19 +5,19 @@ import java.util.List;
 
 abstract class ButtonTemplate {
     private String label;
-    private int buttonValue;
-    public ButtonTemplate(String label, int buttonValue) {
+    private boolean buttonValue;
+    public ButtonTemplate(String label, boolean buttonValue) {
         this.label = label;
         setButtonValue(buttonValue);
         buttons.add(this);
         listObjects();
     }
 
-    public void setButtonValue(int butttonValue) {
+    public void setButtonValue(boolean butttonValue) {
         this.buttonValue = butttonValue;
     }
 
-    public int getButtonValue() {
+    public boolean getButtonValue() {
         return buttonValue;
     }
 
