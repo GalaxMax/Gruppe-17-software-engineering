@@ -18,6 +18,13 @@ abstract class Button {
             System.out.println("Created button " + button.label);
         }
     }
+    public void clickEvent(){
+        for (Button button : buttons) {
+            button.butttonValue = -1;
+            this.butttonValue += 2;
+            System.out.println("Button " + button.label + " clicked " + this.butttonValue);
+        }
+    }
 }
 class button_light_toggle extends Button {
     public button_light_toggle(String label, int butttonValue) {
