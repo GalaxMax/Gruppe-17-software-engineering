@@ -4,100 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="64a4bd9b-7c69-4ada-8d8c-e671a8b9acf1" name="Changes" comment="">
+    <list default="true" id="ab06c8e9-5ece-463c-8711-11be44153311" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-    <list default="true" id="230c4cf4-e0d1-4aa6-affd-3a120b028b0e" name="Changes" comment="Abtract button lights on and off">
-      <change beforePath="$PROJECT_DIR$/src/main/java/SmartInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SmartInput.java" afterDir="false" />
->>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-<<<<<<< Updated upstream
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;chojujansen&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/GalaxMax/Gruppe-17-software-engineering&quot;,
-    &quot;accountId&quot;: &quot;9385681f-b357-46ad-98c0-848e7aa48b21&quot;
-  }
-}</component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="2mkDwajfxdYy1BQPAvjWejk7eaM" />
-=======
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {}
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/GalaxMax/Gruppe-17-software-engineering.git",
-    "accountId": "2732d5dd-4266-4161-8687-631ef13b8f3b"
-  }
-}]]></component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2mk0xQVUT64Fq6RgKoCu3Khxu74" />
->>>>>>> Stashed changes
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-<<<<<<< Updated upstream
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.PhilipsHueAPI.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/chojuj/Documents/GitKraken/Gruppe-17-software-engineering&quot;,
-=======
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SmartInput.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;KlasseInput&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
->>>>>>> Stashed changes
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-<<<<<<< Updated upstream
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
-      <module name="Gruppe-17-software-engineering" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Gruppe-17-software-engineering" />
       <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -107,82 +47,24 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
-=======
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
         <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
         <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
->>>>>>> Stashed changes
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< Updated upstream
-      <changelist id="64a4bd9b-7c69-4ada-8d8c-e671a8b9acf1" name="Changes" comment="" />
-      <created>1727611919437</created>
+      <changelist id="ab06c8e9-5ece-463c-8711-11be44153311" name="Changes" comment="" />
+      <created>1727867838031</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1727611919437</updated>
-      <workItem from="1727611920551" duration="5478000" />
-      <workItem from="1727634326600" duration="1428000" />
+      <updated>1727867838031</updated>
+      <workItem from="1727867842790" duration="1312000" />
     </task>
-=======
-      <changelist id="230c4cf4-e0d1-4aa6-affd-3a120b028b0e" name="Changes" comment="" />
-      <created>1727605513743</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1727605513743</updated>
-      <workItem from="1727605515570" duration="10808000" />
-      <workItem from="1727778142655" duration="2732000" />
-    </task>
-    <task id="LOCAL-00001" summary="Abtract button">
-      <option name="closed" value="true" />
-      <created>1727779664466</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1727779664466</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Abtract button">
-      <option name="closed" value="true" />
-      <created>1727779943342</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1727779943342</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Abtract button lights on and off">
-      <option name="closed" value="true" />
-      <created>1727780044713</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1727780044713</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
->>>>>>> Stashed changes
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-<<<<<<< Updated upstream
-=======
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Abtract button" />
-    <MESSAGE value="Abtract button lights on and off" />
-    <option name="LAST_COMMIT_MESSAGE" value="Abtract button lights on and off" />
-  </component>
->>>>>>> Stashed changes
 </project>
