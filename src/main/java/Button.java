@@ -28,6 +28,11 @@ abstract class Button {
         this.butttonValue = true;
         System.out.println("Button " + this.label + " clicked " + this.butttonValue);
     }
+    public void releaseEvent(){
+        for (Button button : buttons) {
+            button.butttonValue = false;
+        }
+    }
 }
 class button_light_toggle extends Button {
     public button_light_toggle(String label, boolean butttonValue) {
