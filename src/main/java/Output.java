@@ -1,28 +1,39 @@
-public class Output {
-    private String input;
-    public Output(String input) {
-        setInput(input);
-    }
-    public void setInput(String input) {
-        this.input = input;
-    }
-    public String getInput() {
-        return this.input;
-    }
-    public int getOutputToInt() {
-        int intInput;
-        try {
-            intInput = Integer.parseInt(input);
-            return intInput;
-        }
-        catch (NumberFormatException e) {
-            System.out.println("Input var ikke en int.");
-            return 0;
-        }
-    }
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 
-    @Override
-    public String toString() {
-        return "Denne initialiserte klassen har verdien: " + getInput();
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Output {
+
+    JFrame outPutWindow;
+    JPanel panel;
+    JLabel textLabel;
+
+    public Output() {
+
+        Font font = new Font("Times New Roman", Font.PLAIN, 28);
+
+        outPutWindow = new JFrame();
+        outPutWindow.setSize(800,600);
+        outPutWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        outPutWindow.getContentPane().setBackground(Color.white);
+        outPutWindow.setLayout(null);
+
+        panel = new JPanel();
+        panel.setBounds(100, 150, 600, 250);
+        panel.setBackground(Color.white);
+        panel.setLayout(new GridLayout(2,1));
+        outPutWindow.add(panel);
+
+        textLabel = new JLabel();
+        textLabel.setBackground(Color.white);
+        textLabel.setForeground(Color.black);
+        textLabel.setFont(font);
+        panel.add(textLabel);
+
+        outPutWindow.setVisible(true);
     }
 }
