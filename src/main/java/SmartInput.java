@@ -1,5 +1,3 @@
-import buttons.ButtonLightToggle;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -18,11 +16,12 @@ public class SmartInput {
         JLabel textLabel;
 
         private Scanner deviceInput;
-        private Object[] arrIoTDevices;
+        private IoTSystem system;
 
-        public SmartInput(Object[] devices) {
+        public SmartInput(IoTSystem system) {
                 deviceInput = new Scanner(System.in);
-                this.arrIoTDevices = devices;
+                this.system = system;
+
                 Font font = new Font("Times New Roman", Font.PLAIN, 28);
 
                 KeyHandler kHandler = new KeyHandler();
@@ -76,10 +75,10 @@ public class SmartInput {
                                         textLabel.setText("AAAAAAAAAAAA");
                                         break;
                                 case KeyEvent.VK_O:
-
+                                        system.getArrIoTLights()[0].updateLight(1);
                                         break;
                                 case KeyEvent.VK_P:
-                                        ButtonLightToggle light2 = new ButtonLightToggle("Livingroom lights", 0, panel);
+                                        system.getArrIoTLights()[1].updateLight(0);
                                         break;
                                 default:
                                         textLabel.setText("Kul knapp!");

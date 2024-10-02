@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
 
-        IoTDevices IoT = new IoTDevices();
+        IoTSystem IoT = new IoTSystem();
 
 
-        new SmartInput(IoT.getArrIoTDevices());
+        new SmartInput(IoT);
     }
 }
