@@ -22,9 +22,20 @@ abstract class ButtonTemplate {
     }
 
     List<ButtonTemplate> buttons = new ArrayList<ButtonTemplate>();
-    public void listObjects(){
+    public void listObjects() {
         for (ButtonTemplate button : buttons) {
-            System.out.println(button.label);
+            System.out.println("Created button " + button.label);
         }
+    }
+
+    public void clickEvent() {
+        for (ButtonTemplate button : buttons) {
+            if (button != this) {
+                button.buttonValue = false;
+                System.out.println("Button " + button.label + " clicked " + button.buttonValue);
+            }
+        }
+        this.buttonValue = true;
+        System.out.println("Button " + this.label + " clicked " + this.buttonValue);
     }
 }
