@@ -10,6 +10,7 @@ public class ButtonLightToggle extends ButtonTemplate {
         super(label, buttonValue);
         this.lightID = lightID;
     }
+
     public void updateLight(boolean onOrOff) {
         setButtonValue(onOrOff);
         if (getButtonValue()) {
