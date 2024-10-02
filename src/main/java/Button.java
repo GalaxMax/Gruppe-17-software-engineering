@@ -32,8 +32,3 @@ abstract class Button {
         this.butttonValue = false;
     }
 }
-class button_light_toggle extends Button {
-    public button_light_toggle(String label, boolean butttonValue) {
-        super(label, butttonValue);
-    }
-}
