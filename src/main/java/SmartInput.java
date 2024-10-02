@@ -1,3 +1,5 @@
+import buttons.ButtonLightToggle;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -43,6 +45,7 @@ public class SmartInput {
                 panel.add(textLabel);
 
                 FK.setVisible(true);
+
         }
 
         public class KeyHandler implements KeyListener{
@@ -70,6 +73,12 @@ public class SmartInput {
                                         break;
                                 case KeyEvent.VK_A:
                                         textLabel.setText("AAAAAAAAAAAA");
+                                        break;
+                                case KeyEvent.VK_O:
+                                        ButtonLightToggle light = new ButtonLightToggle("Bedroom lights", 1, panel);
+                                        break;
+                                case KeyEvent.VK_P:
+                                        ButtonLightToggle light2 = new ButtonLightToggle("Livingroom lights", 0, panel);
                                         break;
                                 default:
                                         textLabel.setText("Kul knapp!");
