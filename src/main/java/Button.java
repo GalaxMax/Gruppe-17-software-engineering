@@ -5,7 +5,7 @@ import java.util.List;
 
 abstract class Button {
     private String label;
-    private int butttonValue;
+    private int butttonValue = 0;
     public Button(String label, int butttonValue) {
         this.label = label;
         this.butttonValue = butttonValue;
