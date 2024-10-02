@@ -1,11 +1,9 @@
-import buttons.ButtonLightToggle;
-
 public class Main {
     public static void main(String[] args) {
 
+        IoTDevices IoT = new IoTDevices();
 
 
-
-        new SmartInput();
+        new SmartInput(IoT.getArrIoTDevices());
     }
 }

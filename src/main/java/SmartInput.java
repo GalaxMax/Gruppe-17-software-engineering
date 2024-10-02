@@ -18,9 +18,11 @@ public class SmartInput {
         JLabel textLabel;
 
         private Scanner deviceInput;
+        private Object[] arrIoTDevices;
 
-        public SmartInput() {
+        public SmartInput(Object[] devices) {
                 deviceInput = new Scanner(System.in);
+                this.arrIoTDevices = devices;
                 Font font = new Font("Times New Roman", Font.PLAIN, 28);
 
                 KeyHandler kHandler = new KeyHandler();
@@ -45,7 +47,6 @@ public class SmartInput {
                 panel.add(textLabel);
 
                 FK.setVisible(true);
-
         }
 
         public class KeyHandler implements KeyListener{
@@ -75,7 +76,7 @@ public class SmartInput {
                                         textLabel.setText("AAAAAAAAAAAA");
                                         break;
                                 case KeyEvent.VK_O:
-                                        ButtonLightToggle light = new ButtonLightToggle("Bedroom lights", 1, panel);
+
                                         break;
                                 case KeyEvent.VK_P:
                                         ButtonLightToggle light2 = new ButtonLightToggle("Livingroom lights", 0, panel);
