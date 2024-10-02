@@ -28,4 +28,5 @@ public class ButtonLightToggle extends ButtonTemplate {
     private void lightOff() {
         lightID.setBackground(Color.black);
     }
+
 }

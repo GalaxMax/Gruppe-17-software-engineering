@@ -15,17 +15,12 @@ public class SmartInput {
         JPanel panel;
         JLabel textLabel;
 
-
         private Output outPut = new Output();
-
-        public SmartInput() {
 
         private IoTSystem system;
 
         public SmartInput(IoTSystem system) {
-                deviceInput = new Scanner(System.in);
                 this.system = system;
-
 
                 Font font = new Font("Times New Roman", Font.PLAIN, 28);
 
