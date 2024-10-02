@@ -15,10 +15,9 @@ public class SmartInput {
         JPanel panel;
         JLabel textLabel;
 
-        private Scanner deviceInput;
+        private Output outPut = new Output();
 
         public SmartInput() {
-                deviceInput = new Scanner(System.in);
                 Font font = new Font("Times New Roman", Font.PLAIN, 28);
 
                 KeyHandler kHandler = new KeyHandler();
@@ -41,6 +40,7 @@ public class SmartInput {
                 textLabel.setForeground(Color.white);
                 textLabel.setFont(font);
                 panel.add(textLabel);
+                textLabel.setText("Dette er fjernkontrollen. Trykk en knapp!");
 
                 FK.setVisible(true);
         }
@@ -57,22 +57,22 @@ public class SmartInput {
 
                         switch(e.getKeyCode()){
                                 case KeyEvent.VK_1:
-                                        textLabel.setText("1!");
+                                        outPut.textLabel.setText("1!");
                                         break;
                                 case KeyEvent.VK_2:
-                                        textLabel.setText("2. wow!");
+                                        outPut.textLabel.setText("2. wow!");
                                         break;
                                 case KeyEvent.VK_LEFT:
-                                        textLabel.setText("Det var venstre, gitt!");
+                                        outPut.textLabel.setText("Det var venstre, gitt!");
                                         break;
                                 case KeyEvent.VK_RIGHT:
-                                        textLabel.setText("Høyre, nice!");
+                                        outPut.textLabel.setText("Høyre, nice!");
                                         break;
                                 case KeyEvent.VK_A:
-                                        textLabel.setText("AAAAAAAAAAAA");
+                                        outPut.textLabel.setText("AAAAAAAAAAAA");
                                         break;
                                 default:
-                                        textLabel.setText("Kul knapp!");
+                                        outPut.textLabel.setText("Kul knapp!");
                                         break;
                         }
 
@@ -81,18 +81,6 @@ public class SmartInput {
                 @Override
                 public void keyReleased(KeyEvent e) {
 
-                }
-        }
-
-        public String readInput() {
-                System.out.print("press button");
-                return deviceInput.nextLine();
-        }
-
-        public void closeDevice() {
-                if (deviceInput != null) {
-                        deviceInput.close();
-                        System.out.println("bye.");
                 }
         }
 }
