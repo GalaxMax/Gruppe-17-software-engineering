@@ -10,9 +10,12 @@ abstract class ButtonTemplate {
         this.label = label;
         this.butttonValue = butttonValue;
         buttons.add(this);
+        listObjects();
     }
     List<ButtonTemplate> buttons = new ArrayList<ButtonTemplate>();
     public void listObjects(){
-
+        for (ButtonTemplate button : buttons) {
+            System.out.println(button.label);
+        }
     }
 }
