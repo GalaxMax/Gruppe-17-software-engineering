@@ -27,7 +27,7 @@ public class PhilipsHueAPI {
         int code = connection.getResponseCode();
         System.out.println("Response Code: " + code);
     }
-
+    //hei
     public static void main(String[] args) {
         PhilipsHueAPI controller = new PhilipsHueAPI();
         String lightID = "1"; // ID-en til lyset
