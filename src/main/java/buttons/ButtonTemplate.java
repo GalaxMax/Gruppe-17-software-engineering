@@ -5,13 +5,22 @@ import java.util.List;
 
 abstract class ButtonTemplate {
     private String label;
-    private int butttonValue;
-    public ButtonTemplate(String label, int butttonValue) {
+    private int buttonValue;
+    public ButtonTemplate(String label, int buttonValue) {
         this.label = label;
-        this.butttonValue = butttonValue;
+        setButtonValue(buttonValue);
         buttons.add(this);
         listObjects();
     }
+
+    public void setButtonValue(int butttonValue) {
+        this.buttonValue = butttonValue;
+    }
+
+    public int getButtonValue() {
+        return buttonValue;
+    }
+
     List<ButtonTemplate> buttons = new ArrayList<ButtonTemplate>();
     public void listObjects(){
         for (ButtonTemplate button : buttons) {
