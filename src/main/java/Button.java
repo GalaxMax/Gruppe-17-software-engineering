@@ -10,10 +10,13 @@ abstract class Button {
         this.label = label;
         this.butttonValue = butttonValue;
         buttons.add(this);
+        listobjects();
     }
     List<Button> buttons = new ArrayList<Button>();
     public void listobjects(){
-        
+        for (Button button : buttons) {
+            System.out.println(button.label);
+        }
     }
 }
 class button_light_on extends Button {
