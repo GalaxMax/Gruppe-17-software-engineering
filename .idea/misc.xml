@@ -7,8 +7,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
+<<<<<<< Updated upstream
   <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
+>>>>>>> Stashed changes
     <output url="file://$PROJECT_DIR$/compiler" />
   </component>
 </project>
