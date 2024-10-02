@@ -15,7 +15,7 @@ abstract class Button {
     List<Button> buttons = new ArrayList<Button>();
     public void listobjects(){
         for (Button button : buttons) {
-            System.out.println(button.label);
+            System.out.println("Created button " + button.label);
         }
     }
 }
