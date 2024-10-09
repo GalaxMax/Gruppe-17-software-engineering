@@ -1,3 +1,5 @@
+package output;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -8,9 +10,9 @@ import javax.swing.JPanel;
 
 public class Output {
 
-    JFrame outPutWindow;
+    public JFrame outPutWindow;
     JPanel panel;
-    JLabel textLabel;
+    public JLabel textLabel;
 
     public Output() {
 
