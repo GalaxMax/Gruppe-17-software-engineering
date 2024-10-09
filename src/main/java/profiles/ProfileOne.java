@@ -1,34 +1,34 @@
 package profiles;
-import output.Output;
+import output.ActiveOutputs;
 
 public class ProfileOne extends ProfileDefault{
-    public ProfileOne(Output window) {
-        super(window);
+    public ProfileOne(ActiveOutputs activeOutputs) {
+        super(activeOutputs);
     }
 
     @Override
     public void key1(){
-        window.textLabel.setText("Gardiner ned");
+        activeOutputs.mainOutput.textLabel.setText("Gardiner ned");
     }
 
     @Override
     public void key2(){
-        window.textLabel.setText("Gardiner opp");
+        activeOutputs.mainOutput.textLabel.setText("Gardiner opp");
     }
 
     @Override
     public void key3(){
-        window.textLabel.setText("Alarm på");
+        activeOutputs.mainOutput.textLabel.setText("Alarm på");
     }
 
     @Override
     public void key4(){
-        window.textLabel.setText("Arlarm av");
+        activeOutputs.mainOutput.textLabel.setText("Arlarm av");
     }
 
     @Override
     public void key5(){
-        window.textLabel.setText("Detoner selvdestruksjon");
+        activeOutputs.mainOutput.textLabel.setText("Detoner selvdestruksjon");
     }
 
 

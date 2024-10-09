@@ -1,177 +1,188 @@
 package profiles;
 
-import output.Output;
+import output.ActiveOutputs;
 
 public class ProfileDefault {
+    public int tall=0;
+    protected ActiveOutputs activeOutputs;
 
-    protected Output window;
-
-    public ProfileDefault(Output window){
-    this.window=window;
+    public ProfileDefault(ActiveOutputs activeOutputs){
+    this.activeOutputs=activeOutputs;
     }
 
     public void arrowUp(){
-        window.textLabel.setText("Opp");
+        activeOutputs.mainOutput.textLabel.setText("Opp");
     }
 
     public void arrowDown(){
-        window.textLabel.setText("Ned");
+        activeOutputs.mainOutput.textLabel.setText("Ned");
     }
 
     public void arrowLeft(){
-        window.textLabel.setText("Venstre");
+        activeOutputs.mainOutput.textLabel.setText("Venstre");
     }
 
     public void arrowRight(){
-        window.textLabel.setText("Høyre");
+        activeOutputs.mainOutput.textLabel.setText("Høyre");
     }
 
     public void key1(){
-        window.textLabel.setText("Mute/Unmute");
+        activeOutputs.mainOutput.textLabel.setText(Integer.toString(tall));
+        tall+=1;
     }
 
     public void key2(){
-        window.textLabel.setText("Lyd opp");
+        activeOutputs.mainOutput.textLabel.setText(Integer.toString(tall));
+        tall-=1;
     }
 
     public void key3(){
-        window.textLabel.setText("Lyd ned");
+        activeOutputs.mainOutput.textLabel.setText("Lyd ned");
     }
 
     public void key4(){
-        window.textLabel.setText("Lys av/på");
+        activeOutputs.mainOutput.textLabel.setText("Lys av/på");
+        if(activeOutputs.lamp1.getState()==false){
+            activeOutputs.lamp1.lightOn();
+            activeOutputs.lamp1.setState(true);
+        }
+        else{
+            activeOutputs.lamp1.lightOff();
+            activeOutputs.lamp1.setState(false);
+        }
+
     }
 
     public void key5(){
-        window.textLabel.setText("Lys dim opp");
+        activeOutputs.mainOutput.textLabel.setText("Lys dim opp");
     }
 
     public void key6(){
-        window.textLabel.setText("Lys dim ned");
+        activeOutputs.mainOutput.textLabel.setText("Lys dim ned");
     }
 
     public void key7(){
-        window.textLabel.setText("Lås/lås opp huset");
+        activeOutputs.mainOutput.textLabel.setText("Lås/lås opp huset");
     }
 
     public void key8(){
-        window.textLabel.setText("Åpne/lukke garasjedøra");
+        activeOutputs.mainOutput.textLabel.setText("Åpne/lukke garasjedøra");
     }
 
     public void key9(){
-        window.textLabel.setText("Varm bilen");
+        activeOutputs.mainOutput.textLabel.setText("Varm bilen");
     }
 
     public void key0(){
-        window.textLabel.setText("Start kaffemaskina");
+        activeOutputs.mainOutput.textLabel.setText("Start kaffemaskina");
     }
 
     public void keyQ(){
-        window.textLabel.setText("Home-knapp");
+        activeOutputs.mainOutput.textLabel.setText("Home-knapp");
     }
 
     public void keyW(){
-        window.textLabel.setText("OK-knapp");
+        activeOutputs.mainOutput.textLabel.setText("OK-knapp");
     }
 
     public void keyE(){
-        window.textLabel.setText("Tilbake-knapp");
+        activeOutputs.mainOutput.textLabel.setText("Tilbake-knapp");
     }
 
     public void keyR(){
-        window.textLabel.setText("Info-knapp");
+        activeOutputs.mainOutput.textLabel.setText("Info-knapp");
     }
 
     public void keyT(){
-        window.textLabel.setText("Exit-knapp");
+        activeOutputs.mainOutput.textLabel.setText("Exit-knapp");
     }
 
     public void keyY(){
-        window.textLabel.setText("Skru-av-knapp");
+        activeOutputs.mainOutput.textLabel.setText("Skru-av-knapp");
     }
 
     public void keyBackSpace(){
-        window.outPutWindow.dispose();
+        activeOutputs.mainOutput.outputWindow.dispose();
     }
 
     public void keyU(){
-        window.textLabel.setText("U");
+        activeOutputs.mainOutput.textLabel.setText("U");
     }
 
     public void keyI(){
-        window.textLabel.setText("I");
+        activeOutputs.mainOutput.textLabel.setText("I");
     }
 
     public void keyO(){
-        window.textLabel.setText("O");
+        activeOutputs.mainOutput.textLabel.setText("O");
     }
 
     public void keyP(){
-        window.textLabel.setText("P");
+        activeOutputs.mainOutput.textLabel.setText("P");
     }
 
     public void keyA(){
-        window.textLabel.setText("A");
+        activeOutputs.mainOutput.textLabel.setText("A");
     }
 
     public void keyS(){
-        window.textLabel.setText("S");
+        activeOutputs.mainOutput.textLabel.setText("S");
     }
 
     public void keyD(){
-        window.textLabel.setText("d");
+        activeOutputs.mainOutput.textLabel.setText("d");
     }
 
     public void keyF(){
-        window.textLabel.setText("F");
+        activeOutputs.mainOutput.textLabel.setText("F");
     }
 
     public void keyG(){
-        window.textLabel.setText("G");
+        activeOutputs.mainOutput.textLabel.setText("G");
     }
 
     public void keyH(){
-        window.textLabel.setText("H");
+        activeOutputs.mainOutput.textLabel.setText("H");
     }
 
     public void keyJ(){
-        window.textLabel.setText("J");
+        activeOutputs.mainOutput.textLabel.setText("J");
     }
 
     public void keyK(){
-        window.textLabel.setText("K");
+        activeOutputs.mainOutput.textLabel.setText("K");
     }
 
     public void keyL(){
-        window.textLabel.setText("L");
+        activeOutputs.mainOutput.textLabel.setText("L");
     }
 
     public void keyZ(){
-        window.textLabel.setText("Z");
+        activeOutputs.mainOutput.textLabel.setText("Z");
     }
 
     public void keyX(){
-        window.textLabel.setText("X");
+        activeOutputs.mainOutput.textLabel.setText("X");
     }
 
     public void keyC(){
-        window.textLabel.setText("C");
+        activeOutputs.mainOutput.textLabel.setText("C");
     }
 
     public void keyV(){
-        window.textLabel.setText("V");
+        activeOutputs.mainOutput.textLabel.setText("V");
     }
 
     public void keyB(){
-        window.textLabel.setText("B");
+        activeOutputs.mainOutput.textLabel.setText("B");
     }
 
     public void keyN(){
-        window.textLabel.setText("N");
+        activeOutputs.mainOutput.textLabel.setText("N");
     }
 
     public void keyM(){
-        window.textLabel.setText("M");
+        activeOutputs.mainOutput.textLabel.setText("M");
     }
 }
 

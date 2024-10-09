@@ -1,13 +1,17 @@
-import javax.swing.*;
+import output.ActiveOutputs;
 
 public class Main {
     public static void main(String[] args) {
-        IoTSystem IoT = new IoTSystem();
-        new SmartInput(IoT);
 
-        SwingUtilities.invokeLater(() -> {
-            PhilipsHueAPI controller = new PhilipsHueAPI();
-            controller.createAndShowGUI(); // Kalle på metoden her
-        });
+        ActiveOutputs IoTSystems = new ActiveOutputs();
+        new SmartInput(IoTSystems);
+
+        //IoTSystem IoT = new IoTSystem();
+        //new SmartInput(IoT);
+
+        //SwingUtilities.invokeLater(() -> {
+        //    PhilipsHueAPI controller = new PhilipsHueAPI();
+        //    controller.createAndShowGUI(); // Kalle på metoden her
+        //});
     }
 }
