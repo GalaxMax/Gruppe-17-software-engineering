@@ -14,6 +14,11 @@ public class PhilipsHueAPI {
     private String lightID = "1"; // ID-en til lyset
     private boolean lightStatus = false; // Lysstatus (av/på)
 
+    public PhilipsHueAPI() {
+        // Start GUI på riktig tråd
+        SwingUtilities.invokeLater(this::createAndShowGUI);
+    }
+
     // En metode som sender et HTTP-kall til Hue API for å skru på lyset
     public void turnOnLight() throws IOException {
         sendLightState(true);
