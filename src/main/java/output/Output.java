@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class Output {
 
-    JFrame outPutWindow;
+    public JFrame outPutWindow;
     JPanel panel;
     public JLabel textLabel;
 
