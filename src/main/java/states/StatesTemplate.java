@@ -1,15 +1,17 @@
+package states;
+
 import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public abstract class States {
+public abstract class StatesTemplate {
     public double brightness;
     public double volume;
     public double hue;
     public double saturation;
     public double temperature;
     public double humidity;
-    public States() {
+    public StatesTemplate() {
         //Will try to read a JSON file and read the contents of the file line by line
         //then add said content to a string with key value pairs which is added to a json object
         //if it can't find the file, it will catch an exception
