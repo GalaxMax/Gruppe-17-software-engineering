@@ -1,4 +1,4 @@
-package states;
+package remoteStates;
 
 public class States {
 }
