@@ -11,12 +11,14 @@ public abstract class StatesTemplate {
     public double saturation;
     public double temperature;
     public double humidity;
+    public String jsonfile = ("src/Main/JSON/remoteState_1.json");
     public StatesTemplate() {
         //Will try to read a JSON file and read the contents of the file line by line
         //then add said content to a string with key value pairs which is added to a json object
         //if it can't find the file, it will catch an exception
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/Main/JSON/states.json"));
+            System.out.println("reading file " + jsonfile);
+            BufferedReader reader = new BufferedReader(new FileReader(jsonfile));
             StringBuilder jsonContent = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
