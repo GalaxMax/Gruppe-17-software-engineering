@@ -1,6 +1,6 @@
-package remoteStates;
+package remotePresets;
 
-public class RemoteState_1 extends StatesTemplate {
+public class RemoteState_1 extends RemotePresets {
 
     public RemoteState_1() {
         super();
