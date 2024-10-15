@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+//This class will attempt to retrieve data from a .json file and assign the values to the class Remote presets
 public abstract class RemotePresets {
     public double brightness;
     public double volume;
