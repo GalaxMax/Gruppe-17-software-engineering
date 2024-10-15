@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -13,6 +15,12 @@ public class PhilipsHueAPI {
     private String username = "YOUR_USERNAME"; // Brukernavn
     private String lightID = "1"; // ID-en til lyset
     private boolean lightStatus = false; // Lysstatus (av/på)
+    private JSlider brightnessSlider; // Slider for lysstyrke
+
+    public PhilipsHueAPI() {
+        // Start GUI på riktig tråd
+        SwingUtilities.invokeLater(this::createAndShowGUI);
+    }
 
     // En metode som sender et HTTP-kall til Hue API for å skru på lyset
     public void turnOnLight() throws IOException {
@@ -71,7 +79,7 @@ public class PhilipsHueAPI {
         frame.setSize(300, 200);
 
         JButton toggleButton = new JButton("Toggle Light");
-        JSlider brightnessSlider = new JSlider(0, 254, 127); // Lysstyrke fra 0 til 254
+        brightnessSlider = new JSlider(0, 254, 127); // Lysstyrke fra 0 til 254
 
         // Handlers for knapp og slider
         toggleButton.addActionListener(new ActionListener() {
@@ -97,11 +105,32 @@ public class PhilipsHueAPI {
                 ioException.printStackTrace();
             }
         });
-        //hehe
+
+        // KeyListener for å håndtere piltaster
+        frame.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    // Øk lysstyrken
+                    int newValue = Math.min(brightnessSlider.getValue() + 10, 254); // Maks lysstyrke er 254
+                    brightnessSlider.setValue(newValue);
+                } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    // Reduser lysstyrken
+                    int newValue = Math.max(brightnessSlider.getValue() - 10, 0); // Min lysstyrke er 0
+                    brightnessSlider.setValue(newValue);
+                }
+            }
+        });
+
         frame.setLayout(new FlowLayout());
         frame.add(toggleButton);
         frame.add(brightnessSlider);
         frame.setVisible(true);
+        frame.setFocusable(true); // Gjør at frame kan få fokus for tastetrykk
+        frame.requestFocusInWindow(); // Få fokus med en gang
     }
 
+    public static void main(String[] args) {
+        new PhilipsHueAPI();
+    }
 }
