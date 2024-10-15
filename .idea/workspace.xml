@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d122865-6063-44fb-bee1-ec3bcddd0d27" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/remoteStates/RemoteState_1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JSON/states.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/remoteStates/States.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/remoteStates/StatesTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/remoteStates/StatesTemplate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
