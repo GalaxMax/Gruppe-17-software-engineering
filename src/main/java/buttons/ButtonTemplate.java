@@ -13,8 +13,8 @@ abstract class ButtonTemplate {
         listObjects();
     }
 
-    public void setButtonValue(boolean butttonValue) {
-        this.buttonValue = butttonValue;
+    public void setButtonValue(boolean buttonValue) {
+        this.buttonValue = buttonValue;
     }
 
     public boolean getButtonValue() {

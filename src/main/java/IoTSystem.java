@@ -9,8 +9,6 @@ public class IoTSystem {
     private Object[] arrIoTDevices = new Object[3];
     private ButtonLightToggle[] arrIoTLights = new ButtonLightToggle[3];
     public IoTSystem() {
-        arrIoTDevices[0] = 100;
-
         FK = new JFrame();
         FK.setSize(800,600);
         FK.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
