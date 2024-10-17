@@ -4,6 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="bd32c2ab-86d5-42bd-8735-843703e8b5cb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IoTSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IoTSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +51,19 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "JSON__Innstillinger",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "git-widget-placeholder": "Implement__hueapi",
+    "last_opened_file_path": "C:/Users/47463/OneDrive - Viken fylkeskommune/Skrivebord/programmingProject/softwareEngineeringGruppe17/Gruppe-17-software-engineering/src/tests",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\47463\OneDrive - Viken fylkeskommune\Skrivebord\programmingProject\softwareEngineeringGruppe17\Gruppe-17-software-engineering\src\tests" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">

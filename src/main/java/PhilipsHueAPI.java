@@ -11,25 +11,43 @@ import java.net.URL;
 
 public class PhilipsHueAPI {
 
-    private String bridgeIpAddress = "YOUR_BRIDGE_IP"; // Hue Bridge IP
-    private String username = "YOUR_USERNAME"; // Brukernavn
-    private String lightID = "1"; // ID-en til lyset
+    private final String bridgeIpAddress;
+    private final String username;
+    private final String lightID;
     private boolean lightStatus = false; // Lysstatus (av/på)
     private JSlider brightnessSlider; // Slider for lysstyrke
 
-    public PhilipsHueAPI() {
-        // Start GUI på riktig tråd
-        SwingUtilities.invokeLater(this::createAndShowGUI);
+    public PhilipsHueAPI(String bridgeIpAddress, String username, String lightID) {
+        this.bridgeIpAddress = bridgeIpAddress;
+        this.username = username;
+        this.lightID = lightID;
     }
 
     // En metode som sender et HTTP-kall til Hue API for å skru på lyset
-    public void turnOnLight() throws IOException {
-        sendLightState(true);
+    public void turnOnLight() {
+        try {
+            sendLightState(true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // En metode som sender et HTTP-kall til Hue API for å skru av lyset
-    public void turnOffLight() throws IOException {
-        sendLightState(false);
+    public void turnOffLight() {
+        try {
+            sendLightState(false);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void toggleLight() {
+        if (lightStatus) {
+            turnOffLight();
+        } else {
+            turnOnLight();
+        }
+        lightStatus = !lightStatus; // Oppdater lysstatus
     }
 
     // En metode for å sende lysstatus til API
@@ -85,16 +103,12 @@ public class PhilipsHueAPI {
         toggleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    if (lightStatus) {
-                        turnOffLight();
-                    } else {
-                        turnOnLight();
-                    }
-                    lightStatus = !lightStatus; // Oppdater lysstatus
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
+                if (lightStatus) {
+                    turnOffLight();
+                } else {
+                    turnOnLight();
                 }
+                lightStatus = !lightStatus; // Oppdater lysstatus
             }
         });
 
@@ -128,9 +142,5 @@ public class PhilipsHueAPI {
         frame.setVisible(true);
         frame.setFocusable(true); // Gjør at frame kan få fokus for tastetrykk
         frame.requestFocusInWindow(); // Få fokus med en gang
-    }
-
-    public static void main(String[] args) {
-        new PhilipsHueAPI();
     }
 }

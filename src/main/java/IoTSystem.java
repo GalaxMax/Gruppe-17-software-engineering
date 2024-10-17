@@ -4,26 +4,21 @@ import javax.swing.*;
 import java.awt.*;
 
 public class IoTSystem {
-    private JPanel tempLight;
-    private JFrame FK;
-    private Object[] arrIoTDevices = new Object[3];
-    private ButtonLightToggle[] arrIoTLights = new ButtonLightToggle[3];
+
+    private final Object[] arrIoTDevices = new Object[1];
+    private final ButtonLightToggle[] arrIoTLights = new ButtonLightToggle[2];
+    private final PhilipsHueAPI[] arrIoTHUELights = new PhilipsHueAPI[4];
+
     public IoTSystem() {
-        FK = new JFrame();
-        FK.setSize(800,600);
-        FK.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        FK.getContentPane().setBackground(Color.black);
-        FK.setLayout(null);
-
-        tempLight = new JPanel();
-        tempLight.setBounds(100, 150, 600, 250);
-        tempLight.setBackground(Color.black);
-        FK.add(tempLight);
-
-        FK.setVisible(true);
-
-        arrIoTLights[0] = new ButtonLightToggle("Bedroom lights", true, tempLight);
+        arrIoTLights[0] = new ButtonLightToggle("Bedroom lights", true, null);
         arrIoTLights[1] = new ButtonLightToggle("Living room lights", true, null);
+
+        String username1 = "username";
+        String bridgeIp = "ip";
+        arrIoTHUELights[0] = new PhilipsHueAPI(bridgeIp, username1, "1");
+        arrIoTHUELights[1] = new PhilipsHueAPI(bridgeIp, username1, "2");
+        arrIoTHUELights[2] = new PhilipsHueAPI(bridgeIp, username1, "3");
+        arrIoTHUELights[3] = new PhilipsHueAPI(bridgeIp, username1, "4");
     }
 
     public Object[] getArrIoTDevices() {
@@ -31,5 +26,8 @@ public class IoTSystem {
     }
     public ButtonLightToggle[] getArrIoTLights() {
         return arrIoTLights;
+    }
+    public PhilipsHueAPI[] getArrIoTHUELights() {
+        return arrIoTHUELights;
     }
 }
