@@ -18,21 +18,36 @@ public class PhilipsHueAPI {
     private JSlider brightnessSlider; // Slider for lysstyrke
 
     public PhilipsHueAPI(String bridgeIpAddress, String username, String lightID) {
-        // Start GUI på riktig tråd
-        SwingUtilities.invokeLater(this::createAndShowGUI);
         this.bridgeIpAddress = bridgeIpAddress;
         this.username = username;
         this.lightID = lightID;
     }
 
     // En metode som sender et HTTP-kall til Hue API for å skru på lyset
-    public void turnOnLight() throws IOException {
-        sendLightState(true);
+    public void turnOnLight() {
+        try {
+            sendLightState(true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // En metode som sender et HTTP-kall til Hue API for å skru av lyset
-    public void turnOffLight() throws IOException {
-        sendLightState(false);
+    public void turnOffLight() {
+        try {
+            sendLightState(false);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void toggleLight() {
+        if (lightStatus) {
+            turnOffLight();
+        } else {
+            turnOnLight();
+        }
+        lightStatus = !lightStatus; // Oppdater lysstatus
     }
 
     // En metode for å sende lysstatus til API
@@ -88,16 +103,12 @@ public class PhilipsHueAPI {
         toggleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    if (lightStatus) {
-                        turnOffLight();
-                    } else {
-                        turnOnLight();
-                    }
-                    lightStatus = !lightStatus; // Oppdater lysstatus
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
+                if (lightStatus) {
+                    turnOffLight();
+                } else {
+                    turnOnLight();
                 }
+                lightStatus = !lightStatus; // Oppdater lysstatus
             }
         });
 

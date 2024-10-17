@@ -5,15 +5,18 @@ import java.awt.*;
 
 public class IoTSystem {
 
-    private Object[] arrIoTDevices = new Object[3];
-    private ButtonLightToggle[] arrIoTLights = new ButtonLightToggle[3];
-    private PhilipsHueAPI[] arrIoTHUELights = new PhilipsHueAPI[3];
+    private final Object[] arrIoTDevices = new Object[1];
+    private final ButtonLightToggle[] arrIoTLights = new ButtonLightToggle[2];
+    private final PhilipsHueAPI[] arrIoTHUELights = new PhilipsHueAPI[4];
 
     public IoTSystem() {
         arrIoTLights[0] = new ButtonLightToggle("Bedroom lights", true, null);
         arrIoTLights[1] = new ButtonLightToggle("Living room lights", true, null);
 
-        PhilipsHueAPI controller = new PhilipsHueAPI("10.0.0.2", "0wFI6Z883zi-LetDWJYkp9yYlR0u7CbgdIJPNEj2", "1");
+        arrIoTHUELights[0] = new PhilipsHueAPI("ip", "0wFI6Z883zi-...", "1");
+        arrIoTHUELights[1] = new PhilipsHueAPI("ip", "0wFI6Z883zi-...", "2");
+        arrIoTHUELights[2] = new PhilipsHueAPI("ip", "0wFI6Z883zi-...", "3");
+        arrIoTHUELights[3] = new PhilipsHueAPI("ip", "0wFI6Z883zi-...", "4");
     }
 
     public Object[] getArrIoTDevices() {
@@ -21,5 +24,8 @@ public class IoTSystem {
     }
     public ButtonLightToggle[] getArrIoTLights() {
         return arrIoTLights;
+    }
+    public PhilipsHueAPI[] getArrIoTHUELights() {
+        return arrIoTHUELights;
     }
 }

@@ -14,9 +14,9 @@ public class SmartInput {
         JPanel panel;
         JLabel textLabel;
 
-        private Output output = new Output();
+        private final Output output = new Output();
 
-        private IoTSystem system;
+        private final IoTSystem system;
 
         public SmartInput(IoTSystem system) {
                 this.system = system;
@@ -74,11 +74,17 @@ public class SmartInput {
                                 case KeyEvent.VK_A:
                                         output.textLabel.setText("AAAAAAAAAAAA");
                                         break;
+                                case KeyEvent.VK_U:
+                                        system.getArrIoTHUELights()[0].toggleLight();
+                                        break;
+                                case KeyEvent.VK_I:
+                                        system.getArrIoTHUELights()[1].toggleLight();
+                                        break;
                                 case KeyEvent.VK_O:
-                                        system.getArrIoTLights()[0].updateLight(true);
+                                        system.getArrIoTHUELights()[2].toggleLight();
                                         break;
                                 case KeyEvent.VK_P:
-                                        system.getArrIoTLights()[0].updateLight(false);
+                                        system.getArrIoTHUELights()[3].toggleLight();
                                         break;
                                 default:
                                         output.textLabel.setText("Kul knapp!");
