@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd32c2ab-86d5-42bd-8735-843703e8b5cb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fjernkontroller.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IoTSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IoTSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SmartInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SmartInput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,17 +53,25 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Implement__hueapi",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/47463/OneDrive - Viken fylkeskommune/Skrivebord/programmingProject/softwareEngineeringGruppe17/Gruppe-17-software-engineering/src/tests",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\47463\OneDrive - Viken fylkeskommune\Skrivebord\programmingProject\softwareEngineeringGruppe17\Gruppe-17-software-engineering\src\tests" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\47463\OneDrive - Viken fylkeskommune\Skrivebord\programmingProject\softwareEngineeringGruppe17\Gruppe-17-software-engineering\src\main\resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -80,13 +90,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7d122865-6063-44fb-bee1-ec3bcddd0d27" name="Changes" comment="" />
+      <changelist id="bd32c2ab-86d5-42bd-8735-843703e8b5cb" name="Changes" comment="" />
       <created>1727867838031</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727867838031</updated>
       <workItem from="1727867842790" duration="1312000" />
       <workItem from="1728393344581" duration="2453000" />
+      <workItem from="1729188401897" duration="2869000" />
     </task>
     <servers />
   </component>

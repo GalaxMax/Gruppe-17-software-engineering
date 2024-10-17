@@ -1,12 +1,8 @@
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class SmartInput {
 
@@ -25,26 +21,37 @@ public class SmartInput {
 
                 KeyHandler kHandler = new KeyHandler();
 
+                // Create a new JFrame
                 FK = new JFrame();
-                FK.setSize(800,600);
+                FK.setSize(527, 1503);
                 FK.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                FK.getContentPane().setBackground(Color.black);
                 FK.setLayout(null);
                 FK.addKeyListener(kHandler);
 
-                panel = new JPanel();
-                panel.setBounds(100, 150, 600, 250);
-                panel.setBackground(Color.black);
-                panel.setLayout(new GridLayout(2,1));
-                FK.add(panel);
+                // Create a custom JPanel to paint the background image
+                JPanel imagePanel = new JPanel() {
+                        @Override
+                        protected void paintComponent(Graphics g) {
+                                super.paintComponent(g);
+                                // Load the image
+                                ImageIcon imageIcon = new ImageIcon(SmartInput.class.getResource("fjernkontroller.png"));
 
-                textLabel = new JLabel();
-                textLabel.setBackground(Color.black);
-                textLabel.setForeground(Color.white);
-                textLabel.setFont(font);
-                panel.add(textLabel);
-                textLabel.setText("Dette er fjernkontrollen. Trykk en knapp!");
+                                // Get the image from the ImageIcon
+                                Image img = imageIcon.getImage();
 
+                                // Draw the image to fill the entire panel
+                                g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+                        }
+                };
+
+                // Set the size and layout for the custom panel
+                imagePanel.setBounds(0, 0, 527, 1503);
+                imagePanel.setLayout(null); // No layout as it's a background panel
+
+                // Add the custom image panel to the JFrame
+                FK.add(imagePanel);
+
+                // Make the JFrame visible
                 FK.setVisible(true);
         }
 
