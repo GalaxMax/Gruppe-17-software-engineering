@@ -21,37 +21,25 @@ public class SmartInput {
 
                 KeyHandler kHandler = new KeyHandler();
 
-                // Create a new JFrame
                 FK = new JFrame();
-                FK.setSize(527, 1503);
+                FK.setSize(263, 751);
                 FK.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 FK.setLayout(null);
                 FK.addKeyListener(kHandler);
 
-                // Create a custom JPanel to paint the background image
                 JPanel imagePanel = new JPanel() {
                         @Override
                         protected void paintComponent(Graphics g) {
                                 super.paintComponent(g);
-                                // Load the image
                                 ImageIcon imageIcon = new ImageIcon(SmartInput.class.getResource("fjernkontroller.png"));
-
-                                // Get the image from the ImageIcon
                                 Image img = imageIcon.getImage();
-
-                                // Draw the image to fill the entire panel
                                 g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
                         }
                 };
-
-                // Set the size and layout for the custom panel
-                imagePanel.setBounds(0, 0, 527, 1503);
+                imagePanel.setBounds(0, 0, 263, 751);
                 imagePanel.setLayout(null); // No layout as it's a background panel
 
-                // Add the custom image panel to the JFrame
                 FK.add(imagePanel);
-
-                // Make the JFrame visible
                 FK.setVisible(true);
         }
 

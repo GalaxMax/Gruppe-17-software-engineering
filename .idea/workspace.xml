@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd32c2ab-86d5-42bd-8735-843703e8b5cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fjernkontroller.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SmartInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SmartInput.java" afterDir="false" />
     </list>
@@ -53,7 +51,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "Figmafjernkontroller",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/47463/OneDrive - Viken fylkeskommune/Skrivebord/programmingProject/softwareEngineeringGruppe17/Gruppe-17-software-engineering/src/tests",
     "node.js.detected.package.eslint": "true",
@@ -97,7 +95,7 @@
       <updated>1727867838031</updated>
       <workItem from="1727867842790" duration="1312000" />
       <workItem from="1728393344581" duration="2453000" />
-      <workItem from="1729188401897" duration="2869000" />
+      <workItem from="1729188401897" duration="3642000" />
     </task>
     <servers />
   </component>
