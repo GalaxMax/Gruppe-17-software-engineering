@@ -3,7 +3,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,7 +14,7 @@ public class SmartInput {
         JPanel panel;
         JLabel textLabel;
 
-        private Output outPut = new Output();
+        private Output output = new Output();
 
         private IoTSystem system;
 
@@ -61,19 +60,19 @@ public class SmartInput {
 
                         switch(e.getKeyCode()){
                                 case KeyEvent.VK_1:
-                                        outPut.textLabel.setText("1!");
+                                        output.textLabel.setText("1!");
                                         break;
                                 case KeyEvent.VK_2:
-                                        outPut.textLabel.setText("2. wow!");
+                                        output.textLabel.setText("2. wow!");
                                         break;
                                 case KeyEvent.VK_LEFT:
-                                        outPut.textLabel.setText("Det var venstre, gitt!");
+                                        output.textLabel.setText("Det var venstre, gitt!");
                                         break;
                                 case KeyEvent.VK_RIGHT:
-                                        outPut.textLabel.setText("Høyre, nice!");
+                                        output.textLabel.setText("Høyre, nice!");
                                         break;
                                 case KeyEvent.VK_A:
-                                        outPut.textLabel.setText("AAAAAAAAAAAA");
+                                        output.textLabel.setText("AAAAAAAAAAAA");
                                         break;
                                 case KeyEvent.VK_O:
                                         system.getArrIoTLights()[0].updateLight(true);
@@ -82,7 +81,7 @@ public class SmartInput {
                                         system.getArrIoTLights()[0].updateLight(false);
                                         break;
                                 default:
-                                        outPut.textLabel.setText("Kul knapp!");
+                                        output.textLabel.setText("Kul knapp!");
                                         break;
                         }
 
