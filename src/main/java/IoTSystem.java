@@ -13,10 +13,12 @@ public class IoTSystem {
         arrIoTLights[0] = new ButtonLightToggle("Bedroom lights", true, null);
         arrIoTLights[1] = new ButtonLightToggle("Living room lights", true, null);
 
-        arrIoTHUELights[0] = new PhilipsHueAPI("ip", "0wFI6Z883zi-...", "1");
-        arrIoTHUELights[1] = new PhilipsHueAPI("ip", "0wFI6Z883zi-...", "2");
-        arrIoTHUELights[2] = new PhilipsHueAPI("ip", "0wFI6Z883zi-...", "3");
-        arrIoTHUELights[3] = new PhilipsHueAPI("ip", "0wFI6Z883zi-...", "4");
+        String username1 = "username";
+        String bridgeIp = "ip";
+        arrIoTHUELights[0] = new PhilipsHueAPI(bridgeIp, username1, "1");
+        arrIoTHUELights[1] = new PhilipsHueAPI(bridgeIp, username1, "2");
+        arrIoTHUELights[2] = new PhilipsHueAPI(bridgeIp, username1, "3");
+        arrIoTHUELights[3] = new PhilipsHueAPI(bridgeIp, username1, "4");
     }
 
     public Object[] getArrIoTDevices() {
