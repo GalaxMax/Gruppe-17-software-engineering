@@ -5,6 +5,11 @@ import java.awt.*;
 
 public class Outlet extends ModuleTemplate {
 
+    public Outlet(String windowName, TextModule terminal){
+        super(terminal);
+        outletOutput(windowName);
+    }
+
     public Outlet(String windowName){
         outletOutput(windowName);
     }
@@ -34,10 +39,12 @@ public class Outlet extends ModuleTemplate {
 
     public void outletOn() {
         textLabel.setText("On");
+        terminalAccess("Stikkontakt på");
         setState(true);
     }
     public void outletOff() {
         textLabel.setText("Off");
+        terminalAccess("Stikkontakt av");
         setState(false);
     }
     public void toggleOutlet() {

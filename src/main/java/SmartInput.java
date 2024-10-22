@@ -6,12 +6,9 @@ import profiles.ProfileDefault;
 
 public class SmartInput {
 
-        private ActiveModules activeModules;
         ProfileDefault profile;
 
         public SmartInput(ActiveModules activeModules) {
-                this.activeModules = activeModules;
-
                 KeyHandler kHandler = new KeyHandler();
                 activeModules.remoteControl.outputWindow.addKeyListener(kHandler);
                 this.profile = new ProfileDefault(activeModules);
@@ -88,14 +85,20 @@ public class SmartInput {
                                 case KeyEvent.VK_Y:
                                         profile.keyY();
                                         break;
-                                case KeyEvent.VK_BACK_SPACE:
-                                        profile.keyBackSpace();
+                                case KeyEvent.VK_U:
+                                        profile.keyU();
+                                        break;
+                                case KeyEvent.VK_I:
+                                        profile.keyI();
                                         break;
                                 case KeyEvent.VK_O:
                                         profile.keyO();
                                         break;
                                 case KeyEvent.VK_P:
                                         profile.keyP();
+                                        break;
+                                case KeyEvent.VK_BACK_SPACE:
+                                        profile.keyBackSpace();
                                         break;
                                 //case KeyEvent.VK_H:
                                         //profile = new ProfileOne(activeOutputs);

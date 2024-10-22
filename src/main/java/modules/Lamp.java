@@ -8,6 +8,10 @@ public class Lamp extends ModuleTemplate {
     public Lamp(String windowName){
         lampOutput(windowName);
     }
+    public Lamp(String windowName, TextModule terminal){  //Overloading dersom man vil ha en terminal
+        lampOutput(windowName);
+        this.terminal = terminal;
+    }
 
     private void lampOutput(String windowName){
         outputWindow = new JFrame(windowName);

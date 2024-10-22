@@ -111,13 +111,11 @@ public class ProfileDefault {
     }
 
     public void keyU(){
-        activeModules.outlet1.outletOn();
-        activeModules.textOutput.textLabel.setText("Stikkontakt på");
+        activeModules.outlet1.toggleOutlet();
     }
 
     public void keyI(){
-        activeModules.outlet1.outletOff();
-        activeModules.textOutput.textLabel.setText("Stikkontakt av");
+
     }
 
     public void keyO(){
