@@ -65,14 +65,8 @@ public class ProfileDefault {
     }
 
     public void key7(){
-        if(activeModules.door1.getState()){
-            activeModules.door1.doorLock();
-            activeModules.textOutput.textLabel.setText("Dør låst");
-        }
-        else{
-            activeModules.door1.doorUnlock();
-            activeModules.textOutput.textLabel.setText("Dør ulåst");
-        }
+        activeModules.door1.toggleDoorLock();
+        activeModules.textOutput.textLabel.setText("Lås/lås opp døren");
     }
 
     public void key8(){

@@ -40,4 +40,10 @@ public class Outlet extends ModuleTemplate {
         textLabel.setText("Off");
         setState(false);
     }
+    public void toggleOutlet() {
+        if (this.state) {
+            outletOff();
+        }
+        else outletOn();
+    }
 }

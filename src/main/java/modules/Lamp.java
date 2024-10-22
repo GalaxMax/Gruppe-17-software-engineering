@@ -32,4 +32,10 @@ public class Lamp extends ModuleTemplate {
         label.setBackground(Color.black);
         setState(false);
     }
+    public void toggleLight() {
+        if (this.state) {
+            lightOff();
+        }
+        else lightOn();
+    }
 }

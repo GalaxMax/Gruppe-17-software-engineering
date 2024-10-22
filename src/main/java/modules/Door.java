@@ -39,4 +39,10 @@ public class Door extends ModuleTemplate {
         textLabel.setText("Locked");
         setState(false);
     }
+    public void toggleDoorLock() {
+        if (this.state) {
+            doorLock();
+        }
+        else doorUnlock();
+    }
 }
