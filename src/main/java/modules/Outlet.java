@@ -1,13 +1,15 @@
-package output;
+package modules;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Outlet extends OutputTemplate {
-
-    private boolean state = false;
+public class Outlet extends ModuleTemplate {
 
     public Outlet(String windowName){
+        outletOutput(windowName);
+    }
+    public Outlet(String windowName, TextModule terminal){ //Overloading dersom man vil ha en terminal
+        super(terminal);
         outletOutput(windowName);
     }
 
@@ -36,19 +38,18 @@ public class Outlet extends OutputTemplate {
 
     public void outletOn() {
         textLabel.setText("On");
+        terminalAccess("Stikkontakt på");
         setState(true);
     }
     public void outletOff() {
         textLabel.setText("Off");
+        terminalAccess("Stikkontakt av");
         setState(false);
     }
-
-    public boolean getState() {
-        return state;
+    public void toggleOutlet() {
+        if (this.state) {
+            outletOff();
+        }
+        else outletOn();
     }
-
-    public void setState(boolean state) {
-        this.state = state;
-    }
-
 }

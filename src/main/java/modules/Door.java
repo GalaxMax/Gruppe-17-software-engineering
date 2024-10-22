@@ -1,13 +1,14 @@
-package output;
+package modules;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Door extends OutputTemplate {
-
-    private boolean state = false;
-
+public class Door extends ModuleTemplate {
     public Door(String windowName){
+        doorOutput(windowName);
+    }
+    public Door(String windowName, TextModule terminal) {
+        super(terminal);
         doorOutput(windowName);
     }
 
@@ -36,19 +37,18 @@ public class Door extends OutputTemplate {
 
     public void doorUnlock() {
         textLabel.setText("Unlocked");
+        terminalAccess("Låste opp døren");
         setState(true);
     }
     public void doorLock() {
         textLabel.setText("Locked");
+        terminalAccess("Låste døren");
         setState(false);
     }
-
-    public boolean getState() {
-        return state;
+    public void toggleDoorLock() {
+        if (this.state) {
+            doorLock();
+        }
+        else doorUnlock();
     }
-
-    public void setState(boolean state) {
-        this.state = state;
-    }
-
 }

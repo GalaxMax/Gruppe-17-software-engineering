@@ -1,13 +1,15 @@
-package output;
+package modules;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Lamp extends OutputTemplate {
-
-    private boolean state = false;
+public class Lamp extends ModuleTemplate {
 
     public Lamp(String windowName){
+        lampOutput(windowName);
+    }
+    public Lamp(String windowName, TextModule terminal){  //Overloading dersom man vil ha en terminal
+        super(terminal);
         lampOutput(windowName);
     }
 
@@ -28,19 +30,18 @@ public class Lamp extends OutputTemplate {
 
     public void lightOn() {
         label.setBackground(Color.white);
+        terminalAccess("Lys på");
         setState(true);
     }
     public void lightOff() {
         label.setBackground(Color.black);
+        terminalAccess("Lys av");
         setState(false);
     }
-
-    public boolean getState() {
-        return state;
+    public void toggleLight() {
+        if (this.state) {
+            lightOff();
+        }
+        else lightOn();
     }
-
-    public void setState(boolean state) {
-        this.state = state;
-    }
-
 }

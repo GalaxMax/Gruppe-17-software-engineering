@@ -1,8 +1,8 @@
-import output.ActiveOutputs;
+import modules.ActiveModules;
 
 public class Main {
     public static void main(String[] args) {
-        ActiveOutputs IoTSystems = new ActiveOutputs();
+        ActiveModules IoTSystems = new ActiveModules();
         new SmartInput(IoTSystems);
     }
 }

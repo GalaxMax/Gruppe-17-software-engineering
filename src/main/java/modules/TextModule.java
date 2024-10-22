@@ -1,10 +1,10 @@
-package output;
+package modules;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class TextOutput extends OutputTemplate {
-    public TextOutput(String windowName){
+public class TextModule extends ModuleTemplate {
+    public TextModule(String windowName){
         textOutput(windowName);
     }
 

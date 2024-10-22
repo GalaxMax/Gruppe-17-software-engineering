@@ -1,34 +1,34 @@
 package profiles;
-import output.ActiveOutputs;
+import modules.ActiveModules;
 
 public class ProfileOne extends ProfileDefault{
-    public ProfileOne(ActiveOutputs activeOutputs) {
-        super(activeOutputs);
+    public ProfileOne(ActiveModules activeModules) {
+        super(activeModules);
     }
 
     @Override
     public void key1(){
-        activeOutputs.textOutput.textLabel.setText("Gardiner ned");
+        activeModules.textOutput.textLabel.setText("Gardiner ned");
     }
 
     @Override
     public void key2(){
-        activeOutputs.textOutput.textLabel.setText("Gardiner opp");
+        activeModules.textOutput.textLabel.setText("Gardiner opp");
     }
 
     @Override
     public void key3(){
-        activeOutputs.textOutput.textLabel.setText("Alarm på");
+        activeModules.textOutput.textLabel.setText("Alarm på");
     }
 
     @Override
     public void key4(){
-        activeOutputs.textOutput.textLabel.setText("Arlarm av");
+        activeModules.textOutput.textLabel.setText("Arlarm av");
     }
 
     @Override
     public void key5(){
-        activeOutputs.textOutput.textLabel.setText("Detoner selvdestruksjon");
+        activeModules.textOutput.textLabel.setText("Detoner selvdestruksjon");
     }
 
 

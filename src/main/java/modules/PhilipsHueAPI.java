@@ -1,3 +1,5 @@
+package modules;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +11,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class PhilipsHueAPI {
+public class PhilipsHueAPI extends ModuleTemplate {
 
     private final String bridgeIpAddress;
     private final String username;
@@ -27,8 +29,9 @@ public class PhilipsHueAPI {
     public void turnOnLight() {
         try {
             sendLightState(true);
+            terminalAccess("Skrudde på Philips HUE lys");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Something went wrong when connecting to HUE lights");
         }
     }
 
@@ -36,8 +39,9 @@ public class PhilipsHueAPI {
     public void turnOffLight() {
         try {
             sendLightState(false);
+            terminalAccess("Skrudde av Philips HUE lys");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Something went wrong when connecting to HUE lights");
         }
     }
 

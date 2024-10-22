@@ -1,9 +1,9 @@
-package output;
+package modules;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class RemoteControl extends OutputTemplate {
+public class RemoteControl extends ModuleTemplate {
 
     public RemoteControl(String windowName){
         remoteControlOutput(windowName);

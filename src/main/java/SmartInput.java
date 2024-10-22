@@ -1,22 +1,17 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import output.ActiveOutputs;
+import modules.ActiveModules;
 import profiles.ProfileDefault;
-import profiles.ProfileOne;
 
 public class SmartInput {
 
-        //private IoTSystem system;
-        private ActiveOutputs activeOutputs;
         ProfileDefault profile;
 
-        public SmartInput(ActiveOutputs activeOutputs) {
-                this.activeOutputs=activeOutputs;
-
+        public SmartInput(ActiveModules activeModules) {
                 KeyHandler kHandler = new KeyHandler();
-                activeOutputs.remoteControl.outputWindow.addKeyListener(kHandler);
-                this.profile = new ProfileDefault(activeOutputs);
+                activeModules.remoteControl.outputWindow.addKeyListener(kHandler);
+                this.profile = new ProfileDefault(activeModules);
         }
 
         public class KeyHandler implements KeyListener{
@@ -90,14 +85,20 @@ public class SmartInput {
                                 case KeyEvent.VK_Y:
                                         profile.keyY();
                                         break;
-                                case KeyEvent.VK_BACK_SPACE:
-                                        profile.keyBackSpace();
+                                case KeyEvent.VK_U:
+                                        profile.keyU();
+                                        break;
+                                case KeyEvent.VK_I:
+                                        profile.keyI();
                                         break;
                                 case KeyEvent.VK_O:
                                         profile.keyO();
                                         break;
                                 case KeyEvent.VK_P:
                                         profile.keyP();
+                                        break;
+                                case KeyEvent.VK_BACK_SPACE:
+                                        profile.keyBackSpace();
                                         break;
                                 //case KeyEvent.VK_H:
                                         //profile = new ProfileOne(activeOutputs);
