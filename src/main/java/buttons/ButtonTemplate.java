@@ -6,6 +6,8 @@ import java.util.List;
 abstract class ButtonTemplate {
     private String label;
     private boolean buttonValue;
+    private List<ButtonTemplate> buttons = new ArrayList<ButtonTemplate>();
+
     public ButtonTemplate(String label, boolean buttonValue) {
         this.label = label;
         setButtonValue(buttonValue);
@@ -21,20 +23,20 @@ abstract class ButtonTemplate {
         return buttonValue;
     }
 
-    List<ButtonTemplate> buttons = new ArrayList<ButtonTemplate>();
     public void listObjects() {
         for (ButtonTemplate button : buttons) {
             System.out.println("Created button " + button.label);
         }
     }
 
-    public void clickEvent() {
+    public void clickEvent(String buttonlbael) {
         for (ButtonTemplate button : buttons) {
             if (button != this) {
                 button.buttonValue = false;
                 System.out.println("Button " + button.label + " clicked " + button.buttonValue);
             }
         }
+        this.label = buttonlbael;
         this.buttonValue = true;
         System.out.println("Button " + this.label + " clicked " + this.buttonValue);
     }

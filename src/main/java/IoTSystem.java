@@ -1,10 +1,6 @@
 import buttons.ButtonLightToggle;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class IoTSystem {
-
     private final Object[] arrIoTDevices = new Object[1];
     private final ButtonLightToggle[] arrIoTLights = new ButtonLightToggle[2];
     private final PhilipsHueAPI[] arrIoTHUELights = new PhilipsHueAPI[4];
@@ -19,10 +15,6 @@ public class IoTSystem {
         arrIoTHUELights[1] = new PhilipsHueAPI(bridgeIp, username1, "2");
         arrIoTHUELights[2] = new PhilipsHueAPI(bridgeIp, username1, "3");
         arrIoTHUELights[3] = new PhilipsHueAPI(bridgeIp, username1, "4");
-    }
-
-    public Object[] getArrIoTDevices() {
-        return arrIoTDevices;
     }
     public ButtonLightToggle[] getArrIoTLights() {
         return arrIoTLights;
