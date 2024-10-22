@@ -5,8 +5,6 @@ import java.awt.*;
 
 public class Lamp extends ModuleTemplate {
 
-    private boolean state = false;
-
     public Lamp(String windowName){
         lampOutput(windowName);
     }
@@ -34,13 +32,4 @@ public class Lamp extends ModuleTemplate {
         label.setBackground(Color.black);
         setState(false);
     }
-
-    public boolean getState() {
-        return state;
-    }
-
-    public void setState(boolean state) {
-        this.state = state;
-    }
-
 }

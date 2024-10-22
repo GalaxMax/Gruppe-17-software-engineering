@@ -6,7 +6,6 @@ import profiles.ProfileDefault;
 
 public class SmartInput {
 
-        //private IoTSystem system;
         private ActiveModules activeModules;
         ProfileDefault profile;
 

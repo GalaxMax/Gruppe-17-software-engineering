@@ -5,8 +5,6 @@ import java.awt.*;
 
 public class Outlet extends ModuleTemplate {
 
-    private boolean state = false;
-
     public Outlet(String windowName){
         outletOutput(windowName);
     }
@@ -42,13 +40,4 @@ public class Outlet extends ModuleTemplate {
         textLabel.setText("Off");
         setState(false);
     }
-
-    public boolean getState() {
-        return state;
-    }
-
-    public void setState(boolean state) {
-        this.state = state;
-    }
-
 }

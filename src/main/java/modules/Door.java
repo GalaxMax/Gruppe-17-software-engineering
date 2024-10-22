@@ -4,9 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Door extends ModuleTemplate {
-
-    private boolean state = false;
-
     public Door(String windowName){
         doorOutput(windowName);
     }
@@ -42,13 +39,4 @@ public class Door extends ModuleTemplate {
         textLabel.setText("Locked");
         setState(false);
     }
-
-    public boolean getState() {
-        return state;
-    }
-
-    public void setState(boolean state) {
-        this.state = state;
-    }
-
 }
