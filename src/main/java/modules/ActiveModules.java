@@ -7,4 +7,5 @@ public class ActiveModules {
     public Lamp lamp2 = new Lamp("Lampe 2");
     public Door door1= new Door("Dør 1", textOutput);
     public Outlet outlet1 = new Outlet("Stikkontakt 1", textOutput);
+    public PhilipsHueAPI HUElamp1 = new PhilipsHueAPI("ip", "username", "id");
 }
