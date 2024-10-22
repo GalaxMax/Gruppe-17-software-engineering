@@ -105,9 +105,7 @@ public class SmartInput {
                                         profile.unnassigned();
                                         break;
                         }
-
                 }
-
                 @Override
                 public void keyReleased(KeyEvent e) {
 
