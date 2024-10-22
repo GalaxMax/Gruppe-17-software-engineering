@@ -11,7 +11,4 @@ abstract class OutputTemplate {
     public JPanel label;
     public JLabel textLabel;
 
-    public OutputTemplate() {
-    }
-
 }

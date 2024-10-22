@@ -3,35 +3,43 @@ package output;
 import javax.swing.*;
 import java.awt.*;
 
-public class Lamp extends OutputTemplate {
+public class Door extends OutputTemplate {
 
     private boolean state = false;
 
-    public Lamp(String windowName){
-        lampOutput(windowName);
+    public Door(String windowName){
+        doorOutput(windowName);
     }
 
-    private void lampOutput(String windowName){
+    private void doorOutput(String windowName){
+        Font font = new Font("Times New Roman", Font.PLAIN, 28);
+
         outputWindow = new JFrame(windowName);
-        outputWindow.setSize(400,300);
+        outputWindow.setSize(250,175);
         outputWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         outputWindow.getContentPane().setBackground(Color.black);
         outputWindow.setLayout(null);
 
         label = new JPanel();
-        label.setBounds(100, 150, 600, 250);
+        label.setBounds(20, 30, 150, 100);
         label.setBackground(Color.black);
         outputWindow.add(label);
+
+        textLabel = new JLabel();
+        textLabel.setBackground(Color.black);
+        textLabel.setForeground(Color.white);
+        textLabel.setFont(font);
+        label.add(textLabel);
 
         outputWindow.setVisible(true);
     }
 
-    public void lightOn() {
-        label.setBackground(Color.white);
+    public void doorUnlock() {
+        textLabel.setText("Unlocked");
         setState(true);
     }
-    public void lightOff() {
-        label.setBackground(Color.black);
+    public void doorLock() {
+        textLabel.setText("Locked");
         setState(false);
     }
 

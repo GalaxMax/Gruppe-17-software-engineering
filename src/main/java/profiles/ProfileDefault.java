@@ -10,179 +10,192 @@ public class ProfileDefault {
     this.activeOutputs=activeOutputs;
     }
 
+    public void unnassigned(){
+        activeOutputs.textOutput.textLabel.setText("This key is unnasigned.");
+    }
+
     public void arrowUp(){
-        activeOutputs.mainOutput.textLabel.setText("Opp");
+        activeOutputs.textOutput.textLabel.setText("Opp");
     }
 
     public void arrowDown(){
-        activeOutputs.mainOutput.textLabel.setText("Ned");
+        activeOutputs.textOutput.textLabel.setText("Ned");
     }
 
     public void arrowLeft(){
-        activeOutputs.mainOutput.textLabel.setText("Venstre");
+        activeOutputs.textOutput.textLabel.setText("Venstre");
     }
 
     public void arrowRight(){
-        activeOutputs.mainOutput.textLabel.setText("Høyre");
+        activeOutputs.textOutput.textLabel.setText("Høyre");
     }
 
     public void key1(){
-        activeOutputs.mainOutput.textLabel.setText(Integer.toString(tall));
         tall+=1;
+        activeOutputs.textOutput.textLabel.setText(Integer.toString(tall));
     }
 
     public void key2(){
-        activeOutputs.mainOutput.textLabel.setText(Integer.toString(tall));
         tall-=1;
+        activeOutputs.textOutput.textLabel.setText(Integer.toString(tall));
     }
 
     public void key3(){
-        activeOutputs.mainOutput.textLabel.setText("Lyd ned");
+        activeOutputs.textOutput.textLabel.setText("Lyd ned");
     }
 
     public void key4(){
-        activeOutputs.mainOutput.textLabel.setText("Lys av/på");
-        if(activeOutputs.lamp1.getState()==false){
-            activeOutputs.lamp1.lightOn();
-            activeOutputs.lamp1.setState(true);
+        if(activeOutputs.lamp1.getState()){
+            activeOutputs.lamp1.lightOff();
+            activeOutputs.textOutput.textLabel.setText("Lys av");
         }
         else{
-            activeOutputs.lamp1.lightOff();
-            activeOutputs.lamp1.setState(false);
+            activeOutputs.lamp1.lightOn();
+            activeOutputs.textOutput.textLabel.setText("Lys på");
         }
 
     }
 
     public void key5(){
-        activeOutputs.mainOutput.textLabel.setText("Lys dim opp");
+        activeOutputs.textOutput.textLabel.setText("Lys dim opp");
     }
 
     public void key6(){
-        activeOutputs.mainOutput.textLabel.setText("Lys dim ned");
+        activeOutputs.textOutput.textLabel.setText("Lys dim ned");
     }
 
     public void key7(){
-        activeOutputs.mainOutput.textLabel.setText("Lås/lås opp huset");
+        if(activeOutputs.door1.getState()){
+            activeOutputs.door1.doorLock();
+            activeOutputs.textOutput.textLabel.setText("Dør låst");
+        }
+        else{
+            activeOutputs.door1.doorUnlock();
+            activeOutputs.textOutput.textLabel.setText("Dør ulåst");
+        }
     }
 
     public void key8(){
-        activeOutputs.mainOutput.textLabel.setText("Åpne/lukke garasjedøra");
+        activeOutputs.textOutput.textLabel.setText("Åpne/lukke garasjedøra");
     }
 
     public void key9(){
-        activeOutputs.mainOutput.textLabel.setText("Varm bilen");
+        activeOutputs.textOutput.textLabel.setText("Varm bilen");
     }
 
     public void key0(){
-        activeOutputs.mainOutput.textLabel.setText("Start kaffemaskina");
+        activeOutputs.textOutput.textLabel.setText("Start kaffemaskina");
     }
 
     public void keyQ(){
-        activeOutputs.mainOutput.textLabel.setText("Home-knapp");
+        activeOutputs.textOutput.textLabel.setText("Home-knapp");
     }
 
     public void keyW(){
-        activeOutputs.mainOutput.textLabel.setText("OK-knapp");
+        activeOutputs.textOutput.textLabel.setText("OK-knapp");
     }
 
     public void keyE(){
-        activeOutputs.mainOutput.textLabel.setText("Tilbake-knapp");
+        activeOutputs.textOutput.textLabel.setText("Tilbake-knapp");
     }
 
     public void keyR(){
-        activeOutputs.mainOutput.textLabel.setText("Info-knapp");
+        activeOutputs.textOutput.textLabel.setText("Info-knapp");
     }
 
     public void keyT(){
-        activeOutputs.mainOutput.textLabel.setText("Exit-knapp");
+        activeOutputs.textOutput.textLabel.setText("Exit-knapp");
     }
 
     public void keyY(){
-        activeOutputs.mainOutput.textLabel.setText("Skru-av-knapp");
+        activeOutputs.textOutput.textLabel.setText("Skru-av-knapp");
     }
 
     public void keyBackSpace(){
-        activeOutputs.mainOutput.outputWindow.dispose();
+        activeOutputs.textOutput.textLabel.setText("Lukker vindu");
+        activeOutputs.textOutput.outputWindow.dispose();
     }
 
     public void keyU(){
-        activeOutputs.mainOutput.textLabel.setText("U");
+        activeOutputs.outlet1.outletOn();
+        activeOutputs.textOutput.textLabel.setText("Stikkontakt på");
     }
 
     public void keyI(){
-        activeOutputs.mainOutput.textLabel.setText("I");
+        activeOutputs.outlet1.outletOff();
+        activeOutputs.textOutput.textLabel.setText("Stikkontakt av");
     }
 
     public void keyO(){
-        activeOutputs.mainOutput.textLabel.setText("O");
+        activeOutputs.textOutput.textLabel.setText("O");
     }
 
     public void keyP(){
-        activeOutputs.mainOutput.textLabel.setText("P");
+        activeOutputs.textOutput.textLabel.setText("P");
     }
 
     public void keyA(){
-        activeOutputs.mainOutput.textLabel.setText("A");
+        activeOutputs.textOutput.textLabel.setText("A");
     }
 
     public void keyS(){
-        activeOutputs.mainOutput.textLabel.setText("S");
+        activeOutputs.textOutput.textLabel.setText("S");
     }
 
     public void keyD(){
-        activeOutputs.mainOutput.textLabel.setText("d");
+        activeOutputs.textOutput.textLabel.setText("d");
     }
 
     public void keyF(){
-        activeOutputs.mainOutput.textLabel.setText("F");
+        activeOutputs.textOutput.textLabel.setText("F");
     }
 
     public void keyG(){
-        activeOutputs.mainOutput.textLabel.setText("G");
+        activeOutputs.textOutput.textLabel.setText("G");
     }
 
     public void keyH(){
-        activeOutputs.mainOutput.textLabel.setText("H");
+        activeOutputs.textOutput.textLabel.setText("H");
     }
 
     public void keyJ(){
-        activeOutputs.mainOutput.textLabel.setText("J");
+        activeOutputs.textOutput.textLabel.setText("J");
     }
 
     public void keyK(){
-        activeOutputs.mainOutput.textLabel.setText("K");
+        activeOutputs.textOutput.textLabel.setText("K");
     }
 
     public void keyL(){
-        activeOutputs.mainOutput.textLabel.setText("L");
+        activeOutputs.textOutput.textLabel.setText("L");
     }
 
     public void keyZ(){
-        activeOutputs.mainOutput.textLabel.setText("Z");
+        activeOutputs.textOutput.textLabel.setText("Z");
     }
 
     public void keyX(){
-        activeOutputs.mainOutput.textLabel.setText("X");
+        activeOutputs.textOutput.textLabel.setText("X");
     }
 
     public void keyC(){
-        activeOutputs.mainOutput.textLabel.setText("C");
+        activeOutputs.textOutput.textLabel.setText("C");
     }
 
     public void keyV(){
-        activeOutputs.mainOutput.textLabel.setText("V");
+        activeOutputs.textOutput.textLabel.setText("V");
     }
 
     public void keyB(){
-        activeOutputs.mainOutput.textLabel.setText("B");
+        activeOutputs.textOutput.textLabel.setText("B");
     }
 
     public void keyN(){
-        activeOutputs.mainOutput.textLabel.setText("N");
+        activeOutputs.textOutput.textLabel.setText("N");
     }
 
     public void keyM(){
-        activeOutputs.mainOutput.textLabel.setText("M");
+        activeOutputs.textOutput.textLabel.setText("M");
     }
 }
 

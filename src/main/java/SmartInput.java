@@ -99,10 +99,10 @@ public class SmartInput {
                                 case KeyEvent.VK_P:
                                         profile.keyP();
                                         break;
-                                case KeyEvent.VK_H:
-                                        profile = new ProfileOne(activeOutputs);
+                                //case KeyEvent.VK_H:
+                                        //profile = new ProfileOne(activeOutputs);
                                 default:
-                                        activeOutputs.mainOutput.textLabel.setText("Unassigned");
+                                        profile.unnassigned();
                                         break;
                         }
 
