@@ -1,22 +1,21 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import output.ActiveOutputs;
+import modules.ActiveModules;
 import profiles.ProfileDefault;
-import profiles.ProfileOne;
 
 public class SmartInput {
 
         //private IoTSystem system;
-        private ActiveOutputs activeOutputs;
+        private ActiveModules activeModules;
         ProfileDefault profile;
 
-        public SmartInput(ActiveOutputs activeOutputs) {
-                this.activeOutputs=activeOutputs;
+        public SmartInput(ActiveModules activeModules) {
+                this.activeModules = activeModules;
 
                 KeyHandler kHandler = new KeyHandler();
-                activeOutputs.remoteControl.outputWindow.addKeyListener(kHandler);
-                this.profile = new ProfileDefault(activeOutputs);
+                activeModules.remoteControl.outputWindow.addKeyListener(kHandler);
+                this.profile = new ProfileDefault(activeModules);
         }
 
         public class KeyHandler implements KeyListener{

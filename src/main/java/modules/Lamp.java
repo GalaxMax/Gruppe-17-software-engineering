@@ -1,9 +1,9 @@
-package output;
+package modules;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Lamp extends OutputTemplate {
+public class Lamp extends ModuleTemplate {
 
     private boolean state = false;
 

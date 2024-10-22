@@ -1,28 +1,27 @@
-package output;
+package modules;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Door extends OutputTemplate {
+public class RemoteControl extends ModuleTemplate {
 
-    private boolean state = false;
-
-    public Door(String windowName){
-        doorOutput(windowName);
+    public RemoteControl(String windowName){
+        remoteControlOutput(windowName);
     }
 
-    private void doorOutput(String windowName){
+    private void remoteControlOutput(String windowName){
         Font font = new Font("Times New Roman", Font.PLAIN, 28);
 
         outputWindow = new JFrame(windowName);
-        outputWindow.setSize(250,175);
+        outputWindow.setSize(600,400);
         outputWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         outputWindow.getContentPane().setBackground(Color.black);
         outputWindow.setLayout(null);
 
         label = new JPanel();
-        label.setBounds(20, 30, 150, 100);
+        label.setBounds(100, 150, 500, 250);
         label.setBackground(Color.black);
+        label.setLayout(new GridLayout(2,1));
         outputWindow.add(label);
 
         textLabel = new JLabel();
@@ -30,25 +29,8 @@ public class Door extends OutputTemplate {
         textLabel.setForeground(Color.white);
         textLabel.setFont(font);
         label.add(textLabel);
+        textLabel.setText("Dette er fjernkontrollen. Trykk en knapp!");
 
         outputWindow.setVisible(true);
     }
-
-    public void doorUnlock() {
-        textLabel.setText("Unlocked");
-        setState(true);
-    }
-    public void doorLock() {
-        textLabel.setText("Locked");
-        setState(false);
-    }
-
-    public boolean getState() {
-        return state;
-    }
-
-    public void setState(boolean state) {
-        this.state = state;
-    }
-
 }

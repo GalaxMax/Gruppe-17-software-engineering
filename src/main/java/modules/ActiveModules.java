@@ -1,8 +1,8 @@
-package output;
+package modules;
 
-public class ActiveOutputs {
+public class ActiveModules {
     public RemoteControl remoteControl = new RemoteControl("Fjernkontroll");
-    public TextOutput textOutput = new TextOutput("Hoved-Output");
+    public TextModule textOutput = new TextModule("Hoved-Output");
     public Lamp lamp1 = new Lamp("Lampe 1");
     public Lamp lamp2 = new Lamp("Lampe 2");
     public Door door1= new Door("Dør 1");
