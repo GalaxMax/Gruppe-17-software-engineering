@@ -7,6 +7,10 @@ public class Door extends ModuleTemplate {
     public Door(String windowName){
         doorOutput(windowName);
     }
+    public Door(String windowName, TextModule terminal) {
+        super(terminal);
+        doorOutput(windowName);
+    }
 
     private void doorOutput(String windowName){
         Font font = new Font("Times New Roman", Font.PLAIN, 28);
@@ -33,10 +37,12 @@ public class Door extends ModuleTemplate {
 
     public void doorUnlock() {
         textLabel.setText("Unlocked");
+        terminalAccess("Låste opp døren");
         setState(true);
     }
     public void doorLock() {
         textLabel.setText("Locked");
+        terminalAccess("Låste døren");
         setState(false);
     }
     public void toggleDoorLock() {

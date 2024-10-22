@@ -5,12 +5,11 @@ import java.awt.*;
 
 public class Outlet extends ModuleTemplate {
 
-    public Outlet(String windowName, TextModule terminal){
-        super(terminal);
+    public Outlet(String windowName){
         outletOutput(windowName);
     }
-
-    public Outlet(String windowName){
+    public Outlet(String windowName, TextModule terminal){ //Overloading dersom man vil ha en terminal
+        super(terminal);
         outletOutput(windowName);
     }
 

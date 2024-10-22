@@ -9,8 +9,8 @@ public class Lamp extends ModuleTemplate {
         lampOutput(windowName);
     }
     public Lamp(String windowName, TextModule terminal){  //Overloading dersom man vil ha en terminal
+        super(terminal);
         lampOutput(windowName);
-        this.terminal = terminal;
     }
 
     private void lampOutput(String windowName){
@@ -30,10 +30,12 @@ public class Lamp extends ModuleTemplate {
 
     public void lightOn() {
         label.setBackground(Color.white);
+        terminalAccess("Lys på");
         setState(true);
     }
     public void lightOff() {
         label.setBackground(Color.black);
+        terminalAccess("Lys av");
         setState(false);
     }
     public void toggleLight() {

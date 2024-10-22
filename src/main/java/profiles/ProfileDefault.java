@@ -41,19 +41,11 @@ public class ProfileDefault {
     }
 
     public void key3(){
-        activeModules.textOutput.textLabel.setText("Lyd ned");
+        activeModules.lamp2.toggleLight();
     }
 
-    public void key4(){
-        if(activeModules.lamp1.getState()){
-            activeModules.lamp1.lightOff();
-            activeModules.textOutput.textLabel.setText("Lys av");
-        }
-        else{
-            activeModules.lamp1.lightOn();
-            activeModules.textOutput.textLabel.setText("Lys på");
-        }
-
+    public void key4() {
+        activeModules.lamp1.toggleLight();
     }
 
     public void key5(){
@@ -66,7 +58,6 @@ public class ProfileDefault {
 
     public void key7(){
         activeModules.door1.toggleDoorLock();
-        activeModules.textOutput.textLabel.setText("Lås/lås opp døren");
     }
 
     public void key8(){
