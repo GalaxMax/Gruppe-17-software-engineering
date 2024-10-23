@@ -37,6 +37,11 @@ public class JsonTest {
     @Test
     public void jsontest() {
         Remote_test remote_test = new Remote_test(validJsonFilePath);
-        Assertions.assertEquals();
+        Assertions.assertEquals(255.0, remote_test.brightness);
+        Assertions.assertEquals(254.0, remote_test.volume);
+        Assertions.assertEquals(253.0, remote_test.hue);
+        Assertions.assertEquals(252.0, remote_test.saturation);
+        Assertions.assertEquals(251.0, remote_test.temperature);
+        Assertions.assertEquals(250.0, remote_test.humidity);
     }
 }
