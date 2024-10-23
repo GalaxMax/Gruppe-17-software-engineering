@@ -36,7 +36,7 @@ public class JsonTest {
     }
     @Test
     public void jsontest() {
-        Remote_test remotePreset2_test = new Remote_test(validJsonFilePath);
+        Remote_test remote_test = new Remote_test(validJsonFilePath);
         Assertions.assertEquals();
     }
 }
