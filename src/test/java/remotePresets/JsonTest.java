@@ -7,12 +7,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-
-class Remote_test extends RemotePresets {
-    public Remote_test(String jsonfile) {
-        super(jsonfile);
-    }
-}
 public class JsonTest {
 
     private String validJsonFilePath;
