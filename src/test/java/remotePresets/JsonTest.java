@@ -15,7 +15,7 @@ public class JsonTest {
     //Benytter @BeforeEach for å sørge for at filen lages før den testes
     @BeforeEach
     public void setUp() throws IOException {
-        validJsonFilePath = "validRemotePresets.json";
+        validJsonFilePath = "src/Main/JSON/validRemotePresets.json";
         BufferedWriter writer = new BufferedWriter(new FileWriter(validJsonFilePath));
         writer.write("{");
         writer.write("\"brightness\": 255.0,");
@@ -26,7 +26,7 @@ public class JsonTest {
         writer.write("\"humidity\": 250.0");
         writer.write("}");
         writer.close();
-        invalidJsonFilePath = "nonExistentFile.json";
+        invalidJsonFilePath = "src/Main/JSON/nonExistentFile.json";
     }
     @Test
     public void jsontest() {
