@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd32c2ab-86d5-42bd-8735-843703e8b5cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/remotePresets/JsonTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/remotePresets/RemotePresets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/remotePresets/RemotePresets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/remotePresets/JsonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/remotePresets/JsonTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.JsonTest.executor": "Run",
+    "JUnit.ProfileOneTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "lita-testbranch",
@@ -105,7 +107,7 @@
       <updated>1727867838031</updated>
       <workItem from="1727867842790" duration="1312000" />
       <workItem from="1728393344581" duration="2453000" />
-      <workItem from="1729692135427" duration="998000" />
+      <workItem from="1729692135427" duration="4462000" />
     </task>
     <task id="LOCAL-00001" summary="Separated input and output into different windows.">
       <option name="closed" value="true" />
