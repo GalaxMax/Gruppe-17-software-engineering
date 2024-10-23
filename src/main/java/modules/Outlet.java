@@ -32,6 +32,7 @@ public class Outlet extends ModuleTemplate {
         textLabel.setForeground(Color.white);
         textLabel.setFont(font);
         label.add(textLabel);
+        textLabel.setText("Off");
 
         outputWindow.setVisible(true);
     }

@@ -3,12 +3,14 @@ package modules;
 import javax.swing.*;
 import java.awt.*;
 
-public class Lamp extends ModuleTemplate {
+public class LampDimmable extends ModuleTemplate {
 
-    public Lamp(String windowName){
+    private int brightness = 0;
+
+    public LampDimmable(String windowName){
         lampOutput(windowName);
     }
-    public Lamp(String windowName, TextModule terminal){  //Overloading dersom man vil ha en terminal
+    public LampDimmable(String windowName, TextModule terminal){  //Overloading dersom man vil ha en terminal
         super(terminal);
         lampOutput(windowName);
     }
@@ -22,14 +24,38 @@ public class Lamp extends ModuleTemplate {
 
         label = new JPanel();
         label.setBounds(100, 75, 200, 150);
-        label.setBackground(Color.black);
+        label.setBackground(new Color(brightness, brightness, brightness));
         outputWindow.add(label);
 
         outputWindow.setVisible(true);
     }
 
+    private void lightUpdate() {
+        label.setBackground(new Color(brightness, brightness, brightness));
+    }
+
+    public void lightDimUp() {
+        if(brightness<=238){
+            brightness+=17;
+            terminalAccess("Lys dimmet opp");
+        }
+        if(getState()){
+            lightUpdate();
+        }
+    }
+
+    public void lightDimDown() {
+        if(brightness>=17){
+            brightness-=17;
+            terminalAccess("Lys dimmet ned");
+        }
+        if(getState()){
+            lightUpdate();
+        }
+    }
+
     public void lightOn() {
-        label.setBackground(Color.white);
+        lightUpdate();
         terminalAccess("Lys på");
         setState(true);
     }
@@ -43,5 +69,6 @@ public class Lamp extends ModuleTemplate {
             lightOff();
         }
         else lightOn();
+
     }
 }

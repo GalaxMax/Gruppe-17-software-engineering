@@ -1,13 +1,17 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 import modules.ActiveModules;
+import profiles.ProfileTemplate;
 import profiles.ProfileDefault;
 import profiles.ProfileOne;
+import profiles.ProfileTwo;
 
 public class SmartInput {
 
-        ProfileDefault profile;
+        int profileNumber=0;
+        ProfileTemplate profile;
         ActiveModules activeModules;
 
         public SmartInput(ActiveModules activeModules) {
@@ -59,16 +63,24 @@ public class SmartInput {
                                         profile.key0();
                                         break;
                                 case KeyEvent.VK_LEFT:
-                                        profile.arrowLeft();
-                                        break;
+                                    try {
+                                        profile.keyArrowLeft();
+                                    } catch (IOException ex) {
+                                        throw new RuntimeException(ex);
+                                    }
+                                    break;
                                 case KeyEvent.VK_RIGHT:
-                                        profile.arrowRight();
-                                        break;
+                                    try {
+                                        profile.keyArrowRight();
+                                    } catch (IOException ex) {
+                                        throw new RuntimeException(ex);
+                                    }
+                                    break;
                                 case KeyEvent.VK_UP:
-                                        profile.arrowUp();
+                                        profile.keyArrowUp();
                                         break;
                                 case KeyEvent.VK_DOWN:
-                                        profile.arrowDown();
+                                        profile.keyArrowDown();
                                         break;
                                 case KeyEvent.VK_Q:
                                         profile.keyQ();
@@ -86,11 +98,19 @@ public class SmartInput {
                                         profile.keyT();
                                         break;
                                 case KeyEvent.VK_Y:
+                                    try {
                                         profile.keyY();
-                                        break;
+                                    } catch (IOException ex) {
+                                        throw new RuntimeException(ex);
+                                    }
+                                    break;
                                 case KeyEvent.VK_U:
+                                    try {
                                         profile.keyU();
-                                        break;
+                                    } catch (IOException ex) {
+                                        throw new RuntimeException(ex);
+                                    }
+                                    break;
                                 case KeyEvent.VK_I:
                                         profile.keyI();
                                         break;
@@ -100,13 +120,73 @@ public class SmartInput {
                                 case KeyEvent.VK_P:
                                         profile.keyP();
                                         break;
+                                case KeyEvent.VK_A:
+                                        profile.keyA();
+                                        break;
+                                case KeyEvent.VK_S:
+                                        profile.keyS();
+                                        break;
+                                case KeyEvent.VK_D:
+                                        profile.keyD();
+                                        break;
+                                case KeyEvent.VK_F:
+                                        profile.keyF();
+                                        break;
+                                case KeyEvent.VK_G:
+                                        profile.keyG();
+                                        break;
+                                case KeyEvent.VK_H:
+                                        profile.keyH();
+                                        break;
+                                case KeyEvent.VK_J:
+                                        profile.keyJ();
+                                        break;
+                                case KeyEvent.VK_K:
+                                        profile.keyK();
+                                        break;
+                                case KeyEvent.VK_L:
+                                        profile.keyL();
+                                        break;
+                                case KeyEvent.VK_Z:
+                                        profile.keyZ();
+                                        break;
+                                case KeyEvent.VK_X:
+                                        profile.keyX();
+                                        break;
+                                case KeyEvent.VK_C:
+                                        profile.keyC();
+                                        break;
+                                case KeyEvent.VK_V:
+                                        profile.keyV();
+                                        break;
+                                case KeyEvent.VK_B:
+                                        profile = new ProfileDefault(activeModules);
+                                        break;
+                                case KeyEvent.VK_N:
+                                        profile = new ProfileOne(activeModules);
+                                        break;
+                                case KeyEvent.VK_M:
+                                        profile = new ProfileTwo(activeModules);
+                                        break;
+                                case KeyEvent.VK_ENTER:
+                                        profile.profileCycle();
+                                        if(profileNumber==0){
+                                                profileNumber++;
+                                                profile = new ProfileOne(activeModules);
+                                        }
+                                        else if (profileNumber==1) {
+                                                profileNumber++;
+                                                profile = new ProfileTwo(activeModules);
+                                        }
+                                        else if(profileNumber==2){
+                                                profileNumber=0;
+                                                profile = new ProfileDefault(activeModules);
+                                        }
                                 case KeyEvent.VK_BACK_SPACE:
                                         profile.keyBackSpace();
                                         break;
-                                case KeyEvent.VK_H:
-                                        profile = new ProfileOne(activeModules);
                                 default:
-                                        profile.unnassigned();
+                                        profile.unassigned();
                                         break;
                         }
                 }
