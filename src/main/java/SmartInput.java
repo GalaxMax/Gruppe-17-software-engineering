@@ -3,13 +3,16 @@ import java.awt.event.KeyListener;
 
 import modules.ActiveModules;
 import profiles.ProfileDefault;
+import profiles.ProfileOne;
 
 public class SmartInput {
 
         ProfileDefault profile;
+        ActiveModules activeModules;
 
         public SmartInput(ActiveModules activeModules) {
                 KeyHandler kHandler = new KeyHandler();
+                this.activeModules = activeModules;
                 activeModules.remoteControl.outputWindow.addKeyListener(kHandler);
                 this.profile = new ProfileDefault(activeModules);
         }
@@ -100,8 +103,8 @@ public class SmartInput {
                                 case KeyEvent.VK_BACK_SPACE:
                                         profile.keyBackSpace();
                                         break;
-                                //case KeyEvent.VK_H:
-                                        //profile = new ProfileOne(activeOutputs);
+                                case KeyEvent.VK_H:
+                                        profile = new ProfileOne(activeModules);
                                 default:
                                         profile.unnassigned();
                                         break;
