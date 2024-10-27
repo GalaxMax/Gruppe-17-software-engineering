@@ -38,8 +38,4 @@ public abstract class RemotePresets {
             throw new RuntimeException(e);
         }
     }
-
-
-
-
 }
