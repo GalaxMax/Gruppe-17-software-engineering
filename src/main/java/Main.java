@@ -1,9 +1,8 @@
+import modules.ActiveModules;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        new SmartInput();
-        Output testOutput = new Output("4096");
-        System.out.println(testOutput);
-        System.out.println(testOutput.getOutputToInt());
+        ActiveModules IoTSystems = new ActiveModules();
+        new SmartInput(IoTSystems);
     }
 }
