@@ -31,6 +31,7 @@ public class Door extends ModuleTemplate {
         textLabel.setForeground(Color.white);
         textLabel.setFont(font);
         label.add(textLabel);
+        textLabel.setText("Locked");
 
         outputWindow.setVisible(true);
     }

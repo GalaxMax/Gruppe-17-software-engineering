@@ -18,6 +18,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
     private final String lightID;
     private boolean lightStatus = false; // Lysstatus (av/på)
     private JSlider brightnessSlider; // Slider for lysstyrke
+    private int brightness=254;
 
     public PhilipsHueAPI(String bridgeIpAddress, String username, String lightID) {
         this.bridgeIpAddress = bridgeIpAddress;
@@ -92,6 +93,22 @@ public class PhilipsHueAPI extends ModuleTemplate {
         // Få responskode for å sjekke om forespørselen var vellykket
         int code = connection.getResponseCode();
         System.out.println("Response Code: " + code);
+    }
+
+    public void dimUp() throws IOException {
+        if(brightness<254){
+            brightness+=17;
+            if(brightness>254) brightness=254;
+        }
+        setBrightness(brightness);
+    }
+
+    public void dimDown() throws IOException {
+        if(brightness>0){
+            brightness-=17;
+            if(brightness<0) brightness=0;
+        }
+        setBrightness(brightness);
     }
 
     // GUI for å kontrollere lyset
