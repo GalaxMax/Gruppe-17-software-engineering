@@ -1,7 +1,6 @@
 package profiles;
 
 import modules.ActiveModules;
-
 import java.io.IOException;
 
 public class ProfileOne extends ProfileTemplate{
@@ -88,12 +87,12 @@ public class ProfileOne extends ProfileTemplate{
     }
 
     @Override
-    public void keyArrowRight() throws IOException {
+    public void keyArrowRight() {
         activeModules.HUElamp1.dimUp();
     }
 
     @Override
-    public void keyArrowLeft() throws IOException {
+    public void keyArrowLeft() {
         activeModules.HUElamp1.dimDown();
     }
 }

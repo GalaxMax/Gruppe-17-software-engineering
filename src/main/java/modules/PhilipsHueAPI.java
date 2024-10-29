@@ -95,20 +95,32 @@ public class PhilipsHueAPI extends ModuleTemplate {
         System.out.println("Response Code: " + code);
     }
 
-    public void dimUp() throws IOException {
-        if(brightness<254){
-            brightness+=17;
-            if(brightness>254) brightness=254;
+    public void dimUp() {
+        try {
+            if(brightness<254){
+                brightness+=17;
+                if(brightness>254) brightness=254;
+
+                terminalAccess("Skrudde opp lysstyrken");
+            }
+            setBrightness(brightness);
+        } catch (IOException e) {
+            System.out.println("Something went wrong when connecting to HUE lights");
         }
-        setBrightness(brightness);
     }
 
-    public void dimDown() throws IOException {
-        if(brightness>0){
-            brightness-=17;
-            if(brightness<0) brightness=0;
+    public void dimDown() {
+        try {
+            if(brightness>0){
+                brightness-=17;
+                if(brightness<0) brightness=0;
+
+                terminalAccess("Skrudde ned lysstyrken");
+            }
+            setBrightness(brightness);
+        } catch (IOException e) {
+            System.out.println("Something went wrong when connecting to HUE lights");
         }
-        setBrightness(brightness);
     }
 
     // GUI for å kontrollere lyset

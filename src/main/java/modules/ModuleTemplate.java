@@ -4,7 +4,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public abstract class ModuleTemplate {
     protected boolean state = false;
     protected TextModule terminal;
@@ -25,7 +24,7 @@ public abstract class ModuleTemplate {
         return state;
     }
 
-    public void setState(boolean state) {
+    protected void setState(boolean state) {
         this.state = state;
     }
 

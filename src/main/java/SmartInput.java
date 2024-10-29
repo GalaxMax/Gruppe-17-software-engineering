@@ -63,19 +63,11 @@ public class SmartInput {
                                         profile.key0();
                                         break;
                                 case KeyEvent.VK_LEFT:
-                                    try {
                                         profile.keyArrowLeft();
-                                    } catch (IOException ex) {
-                                        throw new RuntimeException(ex);
-                                    }
-                                    break;
+                                        break;
                                 case KeyEvent.VK_RIGHT:
-                                    try {
                                         profile.keyArrowRight();
-                                    } catch (IOException ex) {
-                                        throw new RuntimeException(ex);
-                                    }
-                                    break;
+                                        break;
                                 case KeyEvent.VK_UP:
                                         profile.keyArrowUp();
                                         break;
@@ -98,19 +90,11 @@ public class SmartInput {
                                         profile.keyT();
                                         break;
                                 case KeyEvent.VK_Y:
-                                    try {
                                         profile.keyY();
-                                    } catch (IOException ex) {
-                                        throw new RuntimeException(ex);
-                                    }
-                                    break;
+                                        break;
                                 case KeyEvent.VK_U:
-                                    try {
                                         profile.keyU();
-                                    } catch (IOException ex) {
-                                        throw new RuntimeException(ex);
-                                    }
-                                    break;
+                                        break;
                                 case KeyEvent.VK_I:
                                         profile.keyI();
                                         break;

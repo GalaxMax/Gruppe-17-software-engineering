@@ -27,11 +27,11 @@ public class ProfileTemplate {
         activeModules.textModule.textLabel.setText("Ned");
     }
 
-    public void keyArrowLeft() throws IOException {
+    public void keyArrowLeft() {
         activeModules.textModule.textLabel.setText("Venstre");
     }
 
-    public void keyArrowRight() throws IOException {
+    public void keyArrowRight() {
         activeModules.textModule.textLabel.setText("Høyre");
     }
 
@@ -95,11 +95,11 @@ public class ProfileTemplate {
         activeModules.textModule.textLabel.setText("T");
     }
 
-    public void keyY() throws IOException {
+    public void keyY() {
         activeModules.textModule.textLabel.setText("Y");
     }
 
-    public void keyU() throws IOException {
+    public void keyU() {
         activeModules.textModule.textLabel.setText("U");
     }
 

@@ -88,12 +88,12 @@ public class ProfileDefault extends ProfileTemplate{
     }
 
     @Override
-    public void keyY() throws IOException {
+    public void keyY() {
         activeModules.HUElamp1.dimUp();
     }
 
     @Override
-    public void keyU() throws IOException {
+    public void keyU() {
         activeModules.HUElamp1.dimDown();
     }
 }
