@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Outlet extends ModuleTemplate {
-
     public Outlet(String windowName){
         outletOutput(windowName);
     }

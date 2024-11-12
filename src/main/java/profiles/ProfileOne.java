@@ -1,7 +1,6 @@
 package profiles;
 
 import modules.ActiveModules;
-import java.io.IOException;
 
 public class ProfileOne extends ProfileTemplate{
 

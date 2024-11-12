@@ -2,8 +2,6 @@ package profiles;
 
 import modules.ActiveModules;
 
-import java.io.IOException;
-
 public class ProfileTwo extends ProfileTemplate{
 
     public ProfileTwo(ActiveModules activeModules) {

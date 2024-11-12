@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Lamp extends ModuleTemplate {
-
     public Lamp(String windowName){
         lampOutput(windowName);
     }
