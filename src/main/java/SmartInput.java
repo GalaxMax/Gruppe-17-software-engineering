@@ -165,6 +165,7 @@ public class SmartInput {
                                                 profileNumber=0;
                                                 profile = new ProfileDefault(activeModules);
                                         }
+                                        break;
                                 case KeyEvent.VK_BACK_SPACE:
                                         profile.keyBackSpace();
                                         break;
