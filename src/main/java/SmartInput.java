@@ -9,9 +9,9 @@ import profiles.ProfileTwo;
 
 public class SmartInput {
 
-        int profileNumber=0;
-        ProfileTemplate profile;
-        ActiveModules activeModules;
+        private int profileNumber=0;
+        private ProfileTemplate profile;
+        private final ActiveModules activeModules;
 
         public SmartInput(ActiveModules activeModules) {
                 KeyHandler kHandler = new KeyHandler();
