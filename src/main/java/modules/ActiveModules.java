@@ -1,7 +1,7 @@
 package modules;
 
 public class ActiveModules {
-    public TextModule textModule = new TextModule("Terminal");
+    public TextModule textModule = new TextModule("Terminal");  //a window is given to each simulated/digital object
     public RemoteControl remoteControl = new RemoteControl("Fjernkontroll");
     public Lamp lamp1 = new Lamp("Lampe 1", textModule);
     public Lamp lamp2 = new Lamp("Lampe 2");
