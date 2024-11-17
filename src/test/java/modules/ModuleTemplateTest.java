@@ -10,4 +10,11 @@ public class ModuleTemplateTest {
         moduleTemplateTest.setState(true);
         Assertions.assertTrue(moduleTemplateTest.state);
     }
+
+    @Test
+    public void setStateTestFalse() {
+        ModuleTemplate moduleTemplateTest = new Door("moduleTemplateTest"); //ModuleTemplate is abstract, so instead initialize one of the children
+        moduleTemplateTest.setState(false);
+        Assertions.assertFalse(moduleTemplateTest.state);
+    }
 }
