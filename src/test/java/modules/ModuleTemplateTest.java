@@ -13,8 +13,15 @@ public class ModuleTemplateTest {
 
     @Test
     public void setStateTestFalse() {
-        ModuleTemplate moduleTemplateTest = new Door("moduleTemplateTest"); //ModuleTemplate is abstract, so instead initialize one of the children
+        ModuleTemplate moduleTemplateTest = new Door("moduleTemplateTest");
         moduleTemplateTest.setState(false);
         Assertions.assertFalse(moduleTemplateTest.state);
+    }
+
+    @Test
+    public void getStateTest() {
+        ModuleTemplate moduleTemplateTest = new Door("moduleTemplateTest");
+        moduleTemplateTest.setState(true);
+        Assertions.assertTrue(moduleTemplateTest.getState());
     }
 }
