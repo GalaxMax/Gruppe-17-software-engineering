@@ -10,4 +10,12 @@ public class DoorTest {
         door.doorUnlock();
         Assertions.assertTrue(door.state);
     }
+
+    @Test
+    public void doorLock() {
+        Door door = new Door("DoorTest");
+        door.doorLock();
+        Assertions.assertFalse(door.state);
+    }
+
 }
