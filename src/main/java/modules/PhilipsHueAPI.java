@@ -2,10 +2,7 @@ package modules;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -16,8 +13,8 @@ public class PhilipsHueAPI extends ModuleTemplate {
     private final String bridgeIpAddress;
     private final String username;
     private final String lightID;
-    private boolean lightStatus = false; // Lysstatus (av/på)
-    private JSlider brightnessSlider; // Slider for lysstyrke
+    private boolean lightStatus = false;
+    private JSlider brightnessSlider;
     private int brightness=254;
 
     public PhilipsHueAPI(String bridgeIpAddress, String username, String lightID) {
@@ -26,7 +23,6 @@ public class PhilipsHueAPI extends ModuleTemplate {
         this.lightID = lightID;
     }
 
-    // En metode som sender et HTTP-kall til Hue API for å skru på lyset
     public void turnOnLight() {
         try {
             sendLightState(true);
@@ -36,7 +32,6 @@ public class PhilipsHueAPI extends ModuleTemplate {
         }
     }
 
-    // En metode som sender et HTTP-kall til Hue API for å skru av lyset
     public void turnOffLight() {
         try {
             sendLightState(false);
@@ -52,30 +47,29 @@ public class PhilipsHueAPI extends ModuleTemplate {
         } else {
             turnOnLight();
         }
-        lightStatus = !lightStatus; // Oppdater lysstatus
+        lightStatus = !lightStatus; //updates the state
     }
 
-    // En metode for å sende lysstatus til API
+    //sends http call to the Philips Hue API
     private void sendLightState(boolean state) throws IOException {
-        URL url = new URL("http://" + bridgeIpAddress + "/api/" + username + "/lights/" + lightID + "/state");
+        URL url = new URL("http://" + bridgeIpAddress + "/api/" + username + "/lights/" + lightID + "/state");  //creates connection to Hue API
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("PUT");
         connection.setDoOutput(true);
         connection.setRequestProperty("Content-Type", "application/json");
 
-        // Sett lysstatus
+        //set state
         String jsonInputString = "{\"on\": " + state + "}";
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
             os.write(input, 0, input.length);
         }
 
-        // Få responskode for å sjekke om forespørselen var vellykket
+        //get response after try
         int code = connection.getResponseCode();
         System.out.println("Response Code: " + code);
     }
 
-    // Metode for å oppdatere lysstyrken
     public void setBrightness(int brightness) throws IOException {
         URL url = new URL("http://" + bridgeIpAddress + "/api/" + username + "/lights/" + lightID + "/state");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -83,56 +77,53 @@ public class PhilipsHueAPI extends ModuleTemplate {
         connection.setDoOutput(true);
         connection.setRequestProperty("Content-Type", "application/json");
 
-        // Sett lysstyrke (0-254)
+        //set brightness (0-254)
         String jsonInputString = "{\"bri\": " + brightness + "}";
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
             os.write(input, 0, input.length);
         }
 
-        // Få responskode for å sjekke om forespørselen var vellykket
+        //get response after try
         int code = connection.getResponseCode();
         System.out.println("Response Code: " + code);
     }
 
     public void dimUp() {
         try {
-            if(brightness<254){
-                brightness+=17;
-                if(brightness>254) brightness=254;
+            brightness+=17;
+            if(brightness>254) brightness=254;
 
-                terminalAccess("Skrudde opp lysstyrken");
-            }
             setBrightness(brightness);
-        } catch (IOException e) {
+            terminalAccess("Skrudde opp lysstyrken");
+        }
+        catch (IOException e) {
             System.out.println("Something went wrong when connecting to HUE lights");
         }
     }
 
     public void dimDown() {
         try {
-            if(brightness>0){
-                brightness-=17;
-                if(brightness<0) brightness=0;
+            brightness-=17;
+            if(brightness<0) brightness=0;
 
-                terminalAccess("Skrudde ned lysstyrken");
-            }
+            terminalAccess("Skrudde ned lysstyrken");
             setBrightness(brightness);
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             System.out.println("Something went wrong when connecting to HUE lights");
         }
     }
 
-    // GUI for å kontrollere lyset
+    //optional gui to control lights
     public void createAndShowGUI() {
         JFrame frame = new JFrame("Philips Hue Controller");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 200);
 
         JButton toggleButton = new JButton("Toggle Light");
-        brightnessSlider = new JSlider(0, 254, 127); // Lysstyrke fra 0 til 254
+        brightnessSlider = new JSlider(0, 254, 127);
 
-        // Handlers for knapp og slider
         toggleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -141,7 +132,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
                 } else {
                     turnOnLight();
                 }
-                lightStatus = !lightStatus; // Oppdater lysstatus
+                lightStatus = !lightStatus;
             }
         });
 
@@ -173,7 +164,6 @@ public class PhilipsHueAPI extends ModuleTemplate {
         frame.add(toggleButton);
         frame.add(brightnessSlider);
         frame.setVisible(true);
-        frame.setFocusable(true); // Gjør at frame kan få fokus for tastetrykk
-        frame.requestFocusInWindow(); // Få fokus med en gang
+        frame.setFocusable(true);
     }
 }
