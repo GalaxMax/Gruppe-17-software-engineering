@@ -30,6 +30,14 @@ public class LampDimmable extends Lamp {
         outputWindow.setVisible(true);
     }
 
+    public void setBrightness(int newBrightness) {
+        this.brightness = newBrightness;
+    }
+
+    public int getBrightness() {
+        return this.brightness;
+    }
+
     private void lightUpdate() {
         label.setBackground(new Color(brightness, brightness, brightness));
     }
