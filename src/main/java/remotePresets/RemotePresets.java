@@ -13,7 +13,7 @@ public abstract class RemotePresets {
     public double temperature;
     public double humidity;
     public RemotePresets(String jsonfile) {
-        //Will try to read a JSON file and read the contents of the file line by line
+        //will try to read a JSON file and read the contents of the file line by line
         //then add said content to a string with key value pairs which is added to a json object
         //if it can't find the file, it will catch an exception
         try {
@@ -25,9 +25,9 @@ public abstract class RemotePresets {
                 jsonContent.append(line);
             }
             JSONObject jsonObject = new JSONObject(jsonContent.toString());
-            // closes the reader to save resources
+            //closes the reader to save resources
             reader.close();
-            //Assign the values found in the json to the variables in the object
+            //assign the values found in the json to the variables in the object
             this.brightness = jsonObject.getDouble("brightness");
             this.volume = jsonObject.getDouble("volume");
             this.hue = jsonObject.getDouble("hue");
