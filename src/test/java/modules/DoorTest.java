@@ -18,4 +18,10 @@ public class DoorTest {
         Assertions.assertFalse(door.state);
     }
 
+    @Test
+    public void toggleDoorLock() {
+        Door door = new Door("DoorTest");
+        door.toggleDoorLock();  //state starts at false, so true is expected after method call
+        Assertions.assertTrue(door.state);
+    }
 }
