@@ -7,7 +7,7 @@ public class Outlet extends ModuleTemplate {
     public Outlet(String windowName){
         outletOutput(windowName);
     }
-    public Outlet(String windowName, TextModule terminal){ //Overloading dersom man vil ha en terminal
+    public Outlet(String windowName, TextModule terminal){   //overloading if terminal access is wanted for the object
         super(terminal);
         outletOutput(windowName);
     }
