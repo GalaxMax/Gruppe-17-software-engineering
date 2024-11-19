@@ -1,5 +1,4 @@
 package remotePresets;
-
 import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -34,8 +33,12 @@ public abstract class RemotePresets {
             this.saturation = jsonObject.getDouble("saturation");
             this.temperature = jsonObject.getDouble("temperature");
             this.humidity = jsonObject.getDouble("humidity");
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+    public void SaveToJson(){
+        
     }
 }
