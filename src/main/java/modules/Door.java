@@ -7,7 +7,7 @@ public class Door extends ModuleTemplate {
     public Door(String windowName){
         doorOutput(windowName);
     }
-    public Door(String windowName, TextModule terminal) {
+    public Door(String windowName, TextModule terminal) {   //overloading if terminal access is wanted for the object
         super(terminal);
         doorOutput(windowName);
     }

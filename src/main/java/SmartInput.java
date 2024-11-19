@@ -1,33 +1,24 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.IOException;
 
 import modules.ActiveModules;
-import profiles.ProfileTemplate;
-import profiles.ProfileDefault;
-import profiles.ProfileOne;
-import profiles.ProfileTwo;
+import profiles.*;
 
 public class SmartInput {
 
-        int profileNumber=0;
-        ProfileTemplate profile;
-        ActiveModules activeModules;
+        private int profileNumber=0;
+        private ProfileTemplate profile;
+        private final ActiveModules activeModules;
 
         public SmartInput(ActiveModules activeModules) {
-                KeyHandler kHandler = new KeyHandler();
                 this.activeModules = activeModules;
-                activeModules.remoteControl.outputWindow.addKeyListener(kHandler);
                 this.profile = new ProfileDefault(activeModules);
+
+                KeyHandler kHandler = new KeyHandler();
+                activeModules.remoteControl.outputWindow.addKeyListener(kHandler); //this is the emulated/digital remote controller
         }
 
         public class KeyHandler implements KeyListener{
-
-                @Override
-                public void keyTyped(KeyEvent e) {
-
-                }
-
                 @Override
                 public void keyPressed(KeyEvent e) {
 
@@ -166,16 +157,21 @@ public class SmartInput {
                                                 profileNumber=0;
                                                 profile = new ProfileDefault(activeModules);
                                         }
+                                        break;
                                 case KeyEvent.VK_BACK_SPACE:
                                         profile.keyBackSpace();
                                         break;
-                                default:
+                                default:        //if no method for pressed button, then run this
                                         profile.unassigned();
                                         break;
                         }
                 }
-                @Override
+                @Override       //necessary overrides
                 public void keyReleased(KeyEvent e) {
+
+                }
+                @Override
+                public void keyTyped(KeyEvent e) {
 
                 }
         }

@@ -1,8 +1,6 @@
 package modules;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public abstract class ModuleTemplate {
     protected boolean state = false;
@@ -12,11 +10,11 @@ public abstract class ModuleTemplate {
     public JPanel label;
     public JLabel textLabel;
 
-    ModuleTemplate() {
-        // Overloading dersom man ikke trenger terminal
+    ModuleTemplate() {  //constructor if terminal access is not wanted
+
     }
 
-    ModuleTemplate(TextModule terminal) {
+    ModuleTemplate(TextModule terminal) {   //overloading if terminal access is wanted for the object
         this.terminal = terminal;
     }
 

@@ -4,11 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Lamp extends ModuleTemplate {
-
     public Lamp(String windowName){
         lampOutput(windowName);
     }
-    public Lamp(String windowName, TextModule terminal){  //Overloading dersom man vil ha en terminal
+    public Lamp(String windowName, TextModule terminal){  //overloading if terminal access is wanted for the object
         super(terminal);
         lampOutput(windowName);
     }

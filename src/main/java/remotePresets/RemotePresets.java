@@ -35,9 +35,9 @@ public class RemotePresets {
                 jsonContent.append(line);
             }
             JSONObject jsonObject = new JSONObject(jsonContent.toString());
-            // closes the reader to save resources
+            //closes the reader to save resources
             reader.close();
-            //Assign the values found in the json to the variables in the object
+            //assign the values found in the json to the variables in the object
             this.brightness = jsonObject.getDouble("brightness");
             this.volume = jsonObject.getDouble("volume");
             this.hue = jsonObject.getDouble("hue");

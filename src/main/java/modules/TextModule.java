@@ -32,5 +32,4 @@ public class TextModule extends ModuleTemplate {
 
         outputWindow.setVisible(true);
     }
-
 }

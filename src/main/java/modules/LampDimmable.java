@@ -3,15 +3,15 @@ package modules;
 import javax.swing.*;
 import java.awt.*;
 
-public class LampDimmable extends ModuleTemplate {
-
+public class LampDimmable extends Lamp {
     private int brightness = 0;
 
     public LampDimmable(String windowName){
+        super(windowName);
         lampOutput(windowName);
     }
-    public LampDimmable(String windowName, TextModule terminal){  //Overloading dersom man vil ha en terminal
-        super(terminal);
+    public LampDimmable(String windowName, TextModule terminal){  //overloading if terminal access is wanted for the object
+        super(windowName, terminal);
         lampOutput(windowName);
     }
 
@@ -28,6 +28,14 @@ public class LampDimmable extends ModuleTemplate {
         outputWindow.add(label);
 
         outputWindow.setVisible(true);
+    }
+
+    public void setBrightness(int newBrightness) {
+        this.brightness = newBrightness;
+    }
+
+    public int getBrightness() {
+        return this.brightness;
     }
 
     private void lightUpdate() {
@@ -69,6 +77,5 @@ public class LampDimmable extends ModuleTemplate {
             lightOff();
         }
         else lightOn();
-
     }
 }

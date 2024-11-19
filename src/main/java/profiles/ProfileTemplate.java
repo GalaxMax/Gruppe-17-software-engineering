@@ -2,9 +2,7 @@ package profiles;
 
 import modules.ActiveModules;
 
-import java.io.IOException;
-
-public class ProfileTemplate {
+public class ProfileTemplate {  //template methods that will be overwritten in other profiles
     protected ActiveModules activeModules;
 
     public ProfileTemplate(ActiveModules activeModules){
