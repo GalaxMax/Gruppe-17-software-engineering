@@ -6,14 +6,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 //This class will attempt to retrieve data from a .json file and assign the values to the class Remote presets
-public abstract class RemotePresets {
+public class RemotePresets {
     public double brightness;
     public double volume;
     public double hue;
     public double saturation;
     public double temperature;
     public double humidity;
-    public RemotePresets(String jsonfile) {
+    public String jsonfile;
+    public RemotePresets(String jsonFilePath) {
+        jsonfile = jsonFilePath;
         //Will try to read a JSON file and read the contents of the file line by line
         //then add said content to a string with key value pairs which is added to a json object
         //if it can't find the file, it will catch an exception
@@ -40,9 +42,18 @@ public abstract class RemotePresets {
             throw new RuntimeException(e);
         }
     }
-    public void SaveToJson(String jsonfile){
+    public void SaveToJson(){
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(jsonfile));
+            writer.write("{");
+            writer.write("\"brightness\": 0.0,");
+            writer.write("\"volume\": 0.0,");
+            writer.write("\"hue\": 0.0,");
+            writer.write("\"saturation\": 0.0,");
+            writer.write("\"temperature\": 0.0,");
+            writer.write("\"humidity\": 0.0");
+            writer.write("}");
+            writer.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
