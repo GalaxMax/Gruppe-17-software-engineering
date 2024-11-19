@@ -49,16 +49,16 @@ public class RemotePresets {
             throw new RuntimeException(e);
         }
     }
-    public void SaveToJson(){
+    public void SaveToJson(Double brightness, Double volume, Double hue, Double saturation, Double temperature, Double humidity) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(jsonfile));
             writer.write("{");
-            writer.write("\"brightness\": 5.0,");
-            writer.write("\"volume\": 5.0,");
-            writer.write("\"hue\": 5.0,");
-            writer.write("\"saturation\": 5.0,");
-            writer.write("\"temperature\": 5.0,");
-            writer.write("\"humidity\": 5.0");
+            writer.write("\"brightness\": "+ brightness +",");
+            writer.write("\"volume\": "+ volume +",");
+            writer.write("\"hue\": "+ hue +",");
+            writer.write("\"saturation\": "+ saturation +",");
+            writer.write("\"temperature\": " + temperature +",");
+            writer.write("\"humidity\": "+ humidity +",");
             writer.write("}");
             writer.close();
         } catch (Exception e) {
