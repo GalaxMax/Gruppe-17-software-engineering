@@ -1,7 +1,9 @@
 package remotePresets;
 import org.json.JSONObject;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 //This class will attempt to retrieve data from a .json file and assign the values to the class Remote presets
 public abstract class RemotePresets {
@@ -38,9 +40,9 @@ public abstract class RemotePresets {
             throw new RuntimeException(e);
         }
     }
-    public void SaveToJson(){
+    public void SaveToJson(String jsonfile){
         try {
-            
+            BufferedWriter writer = new BufferedWriter(new FileWriter(jsonfile));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
