@@ -23,6 +23,14 @@ public class PhilipsHueAPI extends ModuleTemplate {
         this.lightID = lightID;
     }
 
+    public PhilipsHueAPI(String bridgeIpAddress, String username, String lightID, TextModule terminal) {
+        super(terminal);
+        this.bridgeIpAddress = bridgeIpAddress;
+        this.username = username;
+        this.lightID = lightID;
+    }
+
+
     public void turnOnLight() {
         try {
             sendLightState(true);
