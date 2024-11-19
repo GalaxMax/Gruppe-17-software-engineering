@@ -16,10 +16,17 @@ public class RemotePresets {
     public String jsonfile;
     public RemotePresets(String jsonFilePath) {
         jsonfile = jsonFilePath;
-        //Will try to read a JSON file and read the contents of the file line by line
-        //then add said content to a string with key value pairs which is added to a json object
-        //if it can't find the file, it will catch an exception
+        ReadJson();
+    }
+    public RemotePresets() {
+        jsonfile = "src/Main/JSON/RemotePreset_1.json";
+        ReadJson();
+    }
+    public void ReadJson() {
         try {
+            //Will try to read a JSON file and read the contents of the file line by line
+            //then add said content to a string with key value pairs which is added to a json object
+            //if it can't find the file, it will catch an exception
             System.out.println("reading file " + jsonfile);
             BufferedReader reader = new BufferedReader(new FileReader(jsonfile));
             StringBuilder jsonContent = new StringBuilder();
@@ -46,12 +53,12 @@ public class RemotePresets {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(jsonfile));
             writer.write("{");
-            writer.write("\"brightness\": 0.0,");
-            writer.write("\"volume\": 0.0,");
-            writer.write("\"hue\": 0.0,");
-            writer.write("\"saturation\": 0.0,");
-            writer.write("\"temperature\": 0.0,");
-            writer.write("\"humidity\": 0.0");
+            writer.write("\"brightness\": 5.0,");
+            writer.write("\"volume\": 5.0,");
+            writer.write("\"hue\": 5.0,");
+            writer.write("\"saturation\": 5.0,");
+            writer.write("\"temperature\": 5.0,");
+            writer.write("\"humidity\": 5.0");
             writer.write("}");
             writer.close();
         } catch (Exception e) {
