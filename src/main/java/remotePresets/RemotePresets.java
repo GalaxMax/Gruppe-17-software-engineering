@@ -39,6 +39,10 @@ public abstract class RemotePresets {
         }
     }
     public void SaveToJson(){
-        
+        try {
+            
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
