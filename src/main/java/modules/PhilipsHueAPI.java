@@ -92,7 +92,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
     public void dimUp() {
         try {
             brightness+=17;
-            if(brightness>254) brightness=254;
+            if(brightness>255) brightness=255;
 
             setBrightness(brightness);
             terminalAccess("Skrudde opp lysstyrken");
