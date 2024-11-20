@@ -1,8 +1,5 @@
 package modules;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -13,8 +10,6 @@ public class PhilipsHueAPI extends ModuleTemplate {
     private final String bridgeIpAddress;
     private final String username;
     private final String lightID;
-    private boolean lightStatus = false;
-    private JSlider brightnessSlider;
     private int brightness=255;
 
     public PhilipsHueAPI(String bridgeIpAddress, String username, String lightID) {
@@ -44,12 +39,12 @@ public class PhilipsHueAPI extends ModuleTemplate {
     }
 
     public void toggleLight() {
-        if (lightStatus) {
+        if (this.state) {
             turnOffLight();
         } else {
             turnOnLight();
         }
-        lightStatus = !lightStatus; //updates the state
+        this.state = !this.state; //updates the state
     }
 
     //sends http call to the Philips Hue API
@@ -65,6 +60,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
             os.write(input, 0, input.length);
+            this.state = state;
         }
 
         //get response after try
@@ -117,57 +113,5 @@ public class PhilipsHueAPI extends ModuleTemplate {
         catch (IOException e) {
             System.out.println("Something went wrong when connecting to HUE lights");
         }
-    }
-
-    //optional gui to control lights
-    public void createAndShowGUI() {
-        JFrame frame = new JFrame("Philips Hue Controller");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200);
-
-        JButton toggleButton = new JButton("Toggle Light");
-        brightnessSlider = new JSlider(0, 255, 136);
-
-        toggleButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (lightStatus) {
-                    turnOffLight();
-                } else {
-                    turnOnLight();
-                }
-                lightStatus = !lightStatus;
-            }
-        });
-
-        brightnessSlider.addChangeListener(e -> {
-            try {
-                setBrightness(brightnessSlider.getValue());
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-        });
-
-        // KeyListener for å håndtere piltaster
-        frame.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_UP) {
-                    // Øk lysstyrken
-                    int newValue = Math.min(brightnessSlider.getValue() + 10, 255); // Maks lysstyrke er 255
-                    brightnessSlider.setValue(newValue);
-                } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    // Reduser lysstyrken
-                    int newValue = Math.max(brightnessSlider.getValue() - 10, 0); // Min lysstyrke er 0
-                    brightnessSlider.setValue(newValue);
-                }
-            }
-        });
-
-        frame.setLayout(new FlowLayout());
-        frame.add(toggleButton);
-        frame.add(brightnessSlider);
-        frame.setVisible(true);
-        frame.setFocusable(true);
     }
 }
