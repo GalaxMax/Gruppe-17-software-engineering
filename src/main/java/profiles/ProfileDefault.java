@@ -61,7 +61,7 @@ public class ProfileDefault extends ProfileTemplate{
     }
 
     @Override
-    public void keyQ(){
+    public void keyQ(){     //remember to turn on the lights before dimming up
         activeModules.lamp3.lightDimUp();
     }
 

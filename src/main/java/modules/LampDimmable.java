@@ -8,11 +8,9 @@ public class LampDimmable extends Lamp {
 
     public LampDimmable(String windowName){
         super(windowName);
-        lampOutput(windowName);
     }
     public LampDimmable(String windowName, TextModule terminal){  //overloading if terminal access is wanted for the object
         super(windowName, terminal);
-        lampOutput(windowName);
     }
 
     private void lampOutput(String windowName){
