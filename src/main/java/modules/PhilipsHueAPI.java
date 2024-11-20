@@ -18,6 +18,14 @@ public class PhilipsHueAPI extends ModuleTemplate {
         this.lightID = lightID;
     }
 
+    public int getBrightness() {
+        return brightness;
+    }
+
+    public void setBrightness(int brightness) {
+        this.brightness = brightness;
+    }
+
     public int turnOnLight() {
         try {
             terminalAccess("Skrudde på Philips HUE lys");
@@ -69,7 +77,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
         return code;
     }
 
-    public int setBrightness(int brightness) throws IOException {
+    public int changeBrightness(int brightness) throws IOException {
         URL url = new URL("http://" + bridgeIpAddress + "/api/" + username + "/lights/" + lightID + "/state");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("PUT");
