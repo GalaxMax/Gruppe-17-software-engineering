@@ -3,12 +3,19 @@ package modules;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class PhilipsHueAPITest {
+public class PhilipsHueAPITest {    //bridgeIpAddress must exist to pass any test
     @Test
-    public void successResponseStatusCode() {   //bridgeIpAddress must exist to pass test
+    public void successResponseStatusCode() {
         PhilipsHueAPI philipsHueAPITest = new PhilipsHueAPI("xx.x.x.x", "sampleUsername", "2");
         int code = philipsHueAPITest.turnOnLight();
         Assertions.assertEquals(200, code); //code 200 indicates successful HTTP response
+    }
+
+    @Test
+    public void failedResponseStatusCode() {
+        PhilipsHueAPI philipsHueAPITest = new PhilipsHueAPI("!ANY NON-INTEGER!", "sampleUsername", "2");
+        int code = philipsHueAPITest.turnOnLight();
+        Assertions.assertEquals(0, code); //code 0 indicates failed HTTP connection
     }
 
     @Test
