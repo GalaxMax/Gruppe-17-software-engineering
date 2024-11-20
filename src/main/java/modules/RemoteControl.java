@@ -5,14 +5,15 @@ import java.awt.*;
 
 public class RemoteControl extends ModuleTemplate {
 
-    public RemoteControl(String windowName){
-        remoteControlOutput(windowName);
+    public RemoteControl(String name){
+        this.name=name;
+        remoteControlOutput(name);
     }
 
-    private void remoteControlOutput(String windowName){
+    private void remoteControlOutput(String name){
         Font font = new Font("Times New Roman", Font.PLAIN, 28);
 
-        outputWindow = new JFrame(windowName);
+        outputWindow = new JFrame(name);
         outputWindow.setSize(700,400);
         outputWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         outputWindow.getContentPane().setBackground(Color.black);

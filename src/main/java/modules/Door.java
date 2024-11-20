@@ -4,18 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Door extends ModuleTemplate {
-    public Door(String windowName){
-        doorOutput(windowName);
+    public Door(String name){
+        this.name=name;
+        doorOutput(name);
     }
-    public Door(String windowName, TextModule terminal) {   //overloading if terminal access is wanted for the object
+    public Door(String name, TextModule terminal) {   //overloading if terminal access is wanted for the object
         super(terminal);
-        doorOutput(windowName);
+        this.name=name;
+        doorOutput(name);
     }
 
-    private void doorOutput(String windowName){
+    private void doorOutput(String name){
         Font font = new Font("Times New Roman", Font.PLAIN, 28);
 
-        outputWindow = new JFrame(windowName);
+        outputWindow = new JFrame(name);
         outputWindow.setSize(250,175);
         outputWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         outputWindow.getContentPane().setBackground(Color.black);
@@ -52,4 +54,11 @@ public class Door extends ModuleTemplate {
         }
         else doorUnlock();
     }
+
+    @Override
+    protected void refresh(){
+        if(getState()) doorUnlock();
+        else doorLock();
+    }
+
 }
