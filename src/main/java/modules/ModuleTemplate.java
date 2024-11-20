@@ -1,6 +1,7 @@
 package modules;
 
-import remotePresets.RemotePresets;
+import settingsSaver.SettingsReader;
+import settingsSaver.SettingsWriter;
 
 import javax.swing.*;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ public abstract class ModuleTemplate {
     public JFrame outputWindow;
     public JPanel label;
     public JLabel textLabel;
+    public HashMap<String, Integer> settings = new HashMap<>();
 
     ModuleTemplate() {  //constructor if terminal access is not wanted
 
@@ -41,10 +43,19 @@ public abstract class ModuleTemplate {
     protected void refresh(){
     }
 
-    protected void loadSettings(){
-        HashMap<String, Integer> savedSettings = RemotePresets.readJSON(this.name);
-        System.out.println(savedSettings.get("state"));
-        setState(savedSettings.get("state")==1);
-        System.out.println(savedSettings.get("state")==1);
+    protected boolean loadSettings(){
+        HashMap<String, Integer> savedSettings = SettingsReader.readJSON(this.name);
+
+        if(!savedSettings.isEmpty()) {
+            setState(savedSettings.get("state")==1);
+            return true;
+        }
+        else return false;
     }
+
+    protected void saveSettings(){
+        settings.put("state", this.state ? 1 : 0);   //quickest way to make boolean into int
+        SettingsWriter.writeJSON(this.name, this.settings);
+    }
+
 }

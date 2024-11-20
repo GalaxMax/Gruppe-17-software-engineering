@@ -178,8 +178,8 @@ public class ProfileTemplate {  //template methods that will be overwritten in o
     }
 
     public void keyBackSpace(){
-        activeModules.textModule.textLabel.setText("Lukker vindu");
-        activeModules.textModule.outputWindow.dispose();
+        activeModules.textModule.textLabel.setText("Lagrer og lukker");
+        activeModules.saveAndClose();
     }
 }
 

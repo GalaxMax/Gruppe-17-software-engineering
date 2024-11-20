@@ -7,11 +7,13 @@ public class Door extends ModuleTemplate {
     public Door(String name){
         this.name=name;
         doorOutput(name);
+        if(loadSettings()) refresh();
     }
     public Door(String name, TextModule terminal) {   //overloading if terminal access is wanted for the object
         super(terminal);
         this.name=name;
         doorOutput(name);
+        if(loadSettings()) refresh();
     }
 
     private void doorOutput(String name){

@@ -7,15 +7,13 @@ public class Lamp extends ModuleTemplate {
     public Lamp(String name){
         this.name=name;
         lampOutput(name);
-        loadSettings();
-        refresh();
+        if(loadSettings()) refresh();
     }
     public Lamp(String name, TextModule terminal){  //overloading if terminal access is wanted for the object
         super(terminal);
         this.name=name;
         lampOutput(name);
-        loadSettings();
-        refresh();
+        if(loadSettings()) refresh();
     }
 
     private void lampOutput(String name){

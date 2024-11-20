@@ -7,11 +7,13 @@ public class Outlet extends ModuleTemplate {
     public Outlet(String name){
         outletOutput(name);
         this.name=name;
+        if(loadSettings()) refresh();
     }
     public Outlet(String name, TextModule terminal){   //overloading if terminal access is wanted for the object
         super(terminal);
         this.name=name;
         outletOutput(name);
+        if(loadSettings()) refresh();
     }
 
     private void outletOutput(String name){
@@ -53,5 +55,11 @@ public class Outlet extends ModuleTemplate {
             outletOff();
         }
         else outletOn();
+    }
+
+    @Override
+    protected void refresh(){
+        if(getState()) outletOn();
+        else outletOff();
     }
 }
