@@ -15,7 +15,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
     private final String lightID;
     private boolean lightStatus = false;
     private JSlider brightnessSlider;
-    private int brightness=254;
+    private int brightness=255;
 
     public PhilipsHueAPI(String bridgeIpAddress, String username, String lightID) {
         this.bridgeIpAddress = bridgeIpAddress;
@@ -51,7 +51,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
     }
 
     //sends http call to the Philips Hue API
-    private void sendLightState(boolean state) throws IOException {
+    private int sendLightState(boolean state) throws IOException {
         URL url = new URL("http://" + bridgeIpAddress + "/api/" + username + "/lights/" + lightID + "/state");  //creates connection to Hue API
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("PUT");
@@ -68,16 +68,17 @@ public class PhilipsHueAPI extends ModuleTemplate {
         //get response after try
         int code = connection.getResponseCode();
         System.out.println("Response Code: " + code);
+        return code;
     }
 
-    public void setBrightness(int brightness) throws IOException {
+    public int setBrightness(int brightness) throws IOException {
         URL url = new URL("http://" + bridgeIpAddress + "/api/" + username + "/lights/" + lightID + "/state");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("PUT");
         connection.setDoOutput(true);
         connection.setRequestProperty("Content-Type", "application/json");
 
-        //set brightness (0-254)
+        //set brightness (0-255)
         String jsonInputString = "{\"bri\": " + brightness + "}";
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
@@ -87,6 +88,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
         //get response after try
         int code = connection.getResponseCode();
         System.out.println("Response Code: " + code);
+        return code;
     }
 
     public void dimUp() {
@@ -122,7 +124,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
         frame.setSize(300, 200);
 
         JButton toggleButton = new JButton("Toggle Light");
-        brightnessSlider = new JSlider(0, 254, 127);
+        brightnessSlider = new JSlider(0, 255, 136);
 
         toggleButton.addActionListener(new ActionListener() {
             @Override
@@ -150,7 +152,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
                     // Øk lysstyrken
-                    int newValue = Math.min(brightnessSlider.getValue() + 10, 254); // Maks lysstyrke er 254
+                    int newValue = Math.min(brightnessSlider.getValue() + 10, 255); // Maks lysstyrke er 255
                     brightnessSlider.setValue(newValue);
                 } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
                     // Reduser lysstyrken
