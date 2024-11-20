@@ -13,21 +13,6 @@ public class LampDimmable extends Lamp {
         super(windowName, terminal);
     }
 
-    private void lampOutput(String windowName){
-        outputWindow = new JFrame(windowName);
-        outputWindow.setSize(400,300);
-        outputWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        outputWindow.getContentPane().setBackground(Color.black);
-        outputWindow.setLayout(null);
-
-        label = new JPanel();
-        label.setBounds(100, 75, 200, 150);
-        label.setBackground(new Color(brightness, brightness, brightness));
-        outputWindow.add(label);
-
-        outputWindow.setVisible(true);
-    }
-
     public void setBrightness(int newBrightness) {
         this.brightness = newBrightness;
     }
