@@ -102,7 +102,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
             brightness+=17;
             if(brightness>255) brightness=255;
 
-            setBrightness(brightness);
+            changeBrightness(brightness);
             terminalAccess("Skrudde opp lysstyrken");
         }
         catch (IOException e) {
@@ -116,7 +116,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
             if(brightness<0) brightness=0;
 
             terminalAccess("Skrudde ned lysstyrken");
-            setBrightness(brightness);
+            changeBrightness(brightness);
         }
         catch (IOException e) {
             System.out.println("Something went wrong when connecting to HUE lights");
