@@ -4,18 +4,22 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Outlet extends ModuleTemplate {
-    public Outlet(String windowName){
-        outletOutput(windowName);
+    public Outlet(String name){
+        outletOutput(name);
+        this.name=name;
+        if(loadSettings()) refresh();
     }
-    public Outlet(String windowName, TextModule terminal){   //overloading if terminal access is wanted for the object
+    public Outlet(String name, TextModule terminal){   //overloading if terminal access is wanted for the object
         super(terminal);
-        outletOutput(windowName);
+        this.name=name;
+        outletOutput(name);
+        if(loadSettings()) refresh();
     }
 
-    private void outletOutput(String windowName){
+    private void outletOutput(String name){
         Font font = new Font("Times New Roman", Font.PLAIN, 28);
 
-        outputWindow = new JFrame(windowName);
+        outputWindow = new JFrame(name);
         outputWindow.setSize(250,175);
         outputWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         outputWindow.getContentPane().setBackground(Color.black);
@@ -51,5 +55,11 @@ public class Outlet extends ModuleTemplate {
             outletOff();
         }
         else outletOn();
+    }
+
+    @Override
+    protected void refresh(){
+        if(getState()) outletOn();
+        else outletOff();
     }
 }

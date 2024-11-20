@@ -4,16 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Lamp extends ModuleTemplate {
-    public Lamp(String windowName){
-        lampOutput(windowName);
+    public Lamp(String name){
+        this.name=name;
+        lampOutput(name);
+        if(loadSettings()) refresh();
     }
-    public Lamp(String windowName, TextModule terminal){  //overloading if terminal access is wanted for the object
+    public Lamp(String name, TextModule terminal){  //overloading if terminal access is wanted for the object
         super(terminal);
-        lampOutput(windowName);
+        this.name=name;
+        lampOutput(name);
+        if(loadSettings()) refresh();
     }
 
-    private void lampOutput(String windowName){
-        outputWindow = new JFrame(windowName);
+    private void lampOutput(String name){
+        outputWindow = new JFrame(name);
         outputWindow.setSize(400,300);
         outputWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         outputWindow.getContentPane().setBackground(Color.black);
@@ -43,4 +47,11 @@ public class Lamp extends ModuleTemplate {
         }
         else lightOn();
     }
+
+    @Override
+    protected void refresh(){
+        if(getState()) lightOn();
+        else lightOff();
+    }
+
 }
