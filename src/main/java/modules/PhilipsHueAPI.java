@@ -23,22 +23,24 @@ public class PhilipsHueAPI extends ModuleTemplate {
         this.lightID = lightID;
     }
 
-    public void turnOnLight() {
+    public int turnOnLight() {
         try {
-            sendLightState(true);
             terminalAccess("Skrudde på Philips HUE lys");
+            return sendLightState(true);
         } catch (IOException e) {
             System.out.println("Something went wrong when connecting to HUE lights");
         }
+        return 0;
     }
 
-    public void turnOffLight() {
+    public int turnOffLight() {
         try {
-            sendLightState(false);
             terminalAccess("Skrudde av Philips HUE lys");
+            return sendLightState(false);
         } catch (IOException e) {
             System.out.println("Something went wrong when connecting to HUE lights");
         }
+        return 0;
     }
 
     public void toggleLight() {
