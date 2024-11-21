@@ -34,6 +34,18 @@ public class JsonTest {
     }
     @Test
     public void jsonCheckFileContents() {
-        
+        HashMap testmap = SettingsReader.readJSON(testFile);
+        Assertions.assertEquals(1, testmap.get("Test1"));
+    }
+    @Test
+    public void jsonCheckMalformedFile() {
+        boolean fileMalformed;
+        try {
+            HashMap malformedmap = SettingsReader.readJSON(malformedFile);
+            fileMalformed = false;
+        } catch (Exception e) {
+            fileMalformed = true;
+        }
+        assertTrue(fileMalformed);
     }
 }
