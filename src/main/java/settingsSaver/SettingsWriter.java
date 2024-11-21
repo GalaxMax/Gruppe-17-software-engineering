@@ -12,35 +12,32 @@ public class SettingsWriter {
         String filePath="src/Main/JSON/" + unitName + ".json";
         File file = new File(filePath);
 
-        if(file.exists()){
-            try{
-                BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
-                writer.write("{\n");
-
-                int i=1;
-                for(String setting : settings.keySet()){
-                    int value=settings.get(setting);
-
-                    writer.write("\"" + setting + "\": " + value);
-                    if(i!=settings.size()){
-                        writer.write(",");
-                    }
-                    writer.write("\n");
-
-                    i++;
-                }
-                writer.write("}");
-                writer.close();
-            } catch (IOException e) {throw new RuntimeException(e);}
-        }
-        else{
+        if(!file.exists()) {
             try {
                 file.createNewFile();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
+            writer.write("{\n");
 
+            int i=1;
+            for(String setting : settings.keySet()){
+                int value=settings.get(setting);
+
+                writer.write("\"" + setting + "\": " + value);
+                if(i!=settings.size()){
+                    writer.write(",");
+                }
+                writer.write("\n");
+
+                i++;
+            }
+        writer.write("}");
+
+        writer.close();
+        } catch (IOException e) {throw new RuntimeException(e);}
     }
-
 }
