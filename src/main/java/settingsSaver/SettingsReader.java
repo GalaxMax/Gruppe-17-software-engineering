@@ -25,6 +25,8 @@ public class SettingsReader {
                 String line;
                 while ((line = reader.readLine()) != null) {
                     line = line.trim();
+                    //Will parse every line following a "tabulate (large white space)" as a key
+                    //With an integer value the following ":" after.
                     if (line.startsWith("\"")) {
                         String key;
                         String value;
