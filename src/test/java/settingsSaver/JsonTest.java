@@ -1,4 +1,5 @@
 package settingsSaver;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +24,11 @@ public class JsonTest {
         writeJSON(testFile,jsonTest);
         writeJSON(malformedFile,jsonTestMlformed);
     }
+    @AfterEach
+    public void cleanUp() throws IOException {
+        Files.deleteIfExists(Paths.get("src/Main/JSON/" + testFile + ".json"));
+        Files.deleteIfExists(Paths.get("src/Main/JSON/" + malformedFile + ".json"));
+    }
     @Test
     public void jsonCheckIfFileExists() {
         assertTrue(Files.exists(Paths.get("src/Main/JSON/" + testFile +".json")));
@@ -30,15 +36,13 @@ public class JsonTest {
     }
     @Test
     public void jsonCheckIfFileHasContent() {
-        String filePath = "src/Main/JSON/" + testFile;
+        String filePath = "src/Main/JSON/" + testFile +".json";
         boolean fileHasContent;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
-            if (reader.readLine() == null) {
-                fileHasContent = false;
-            } else {
-                fileHasContent = true;
-            };
+            System.out.println(reader.readLine());
+            fileHasContent = reader.readLine() != null;
+            reader.close();
         } catch (Exception e) {
             fileHasContent = false;
         }
@@ -60,4 +64,6 @@ public class JsonTest {
         }
         assertTrue(fileMalformed);
     }
+
+
 }
