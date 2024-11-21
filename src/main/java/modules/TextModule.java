@@ -4,15 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TextModule extends ModuleTemplate {
-    public TextModule(String windowName){
-        textOutput(windowName);
+    public TextModule(String name){
+        this.name=name;
+        textOutput(name);
     }
 
-    public void textOutput(String windowName){
+    public void textOutput(String name){
 
         Font font = new Font("Times New Roman", Font.PLAIN, 28);
 
-        outputWindow = new JFrame(windowName);
+        outputWindow = new JFrame(name);
         outputWindow.setSize(600,400);
         outputWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         outputWindow.getContentPane().setBackground(Color.white);

@@ -1,7 +1,10 @@
 package modules;
 
-import javax.swing.*;
+import settingsSaver.SettingsReader;
+import settingsSaver.SettingsWriter;
+
 import java.awt.*;
+import java.util.HashMap;
 
 public class LampDimmable extends Lamp {
     private int brightness = 0;
@@ -26,20 +29,18 @@ public class LampDimmable extends Lamp {
     }
 
     public void lightDimUp() {
-        if(brightness<=238){
-            brightness+=17;
-            terminalAccess("Lys dimmet opp");
-        }
+        if(brightness<=238) brightness+=17;
+        else brightness=255;
+        terminalAccess("Lys dimmet opp");
         if(getState()){
             lightUpdate();
         }
     }
 
     public void lightDimDown() {
-        if(brightness>=17){
-            brightness-=17;
-            terminalAccess("Lys dimmet ned");
-        }
+        if(brightness>=17) brightness-=17;
+        else brightness=0;
+        terminalAccess("Lys dimmet ned");
         if(getState()){
             lightUpdate();
         }
@@ -50,15 +51,35 @@ public class LampDimmable extends Lamp {
         terminalAccess("Lys på");
         setState(true);
     }
-    public void lightOff() {
-        label.setBackground(Color.black);
-        terminalAccess("Lys av");
-        setState(false);
-    }
+
     public void toggleLight() {
         if (this.state) {
             lightOff();
         }
         else lightOn();
+    }
+
+    @Override
+    protected void refresh(){
+        if(getState()) lightOn();
+        else lightOff();
+    }
+
+    @Override
+    public boolean loadSettings() {
+        HashMap<String, Integer> savedSettings = SettingsReader.readJSON(this.name);
+        if (!savedSettings.isEmpty()) {
+            setState(savedSettings.get("state") == 1);
+            setBrightness(savedSettings.get("brightness"));
+            return true;
+        }
+        else return false;
+    }
+
+    @Override
+    public void saveSettings(){
+        settings.put("state", this.state ? 1 : 0);
+        settings.put("brightness", this.brightness);
+        SettingsWriter.writeJSON(this.name, this.settings);
     }
 }
