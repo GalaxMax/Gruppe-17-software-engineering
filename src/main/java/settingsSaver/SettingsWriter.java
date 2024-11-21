@@ -19,8 +19,8 @@ public class SettingsWriter {
                 throw new RuntimeException(e);
             }
         }
-        try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));){
+
             writer.write("{\n");
 
             int i=1;
@@ -36,8 +36,6 @@ public class SettingsWriter {
                 i++;
             }
         writer.write("}");
-
-        writer.close();
         } catch (IOException e) {throw new RuntimeException(e);}
     }
 }
