@@ -14,7 +14,7 @@ import static settingsSaver.SettingsWriter.writeJSON;
 public class JsonTest {
     String testFile = "test1";
     String malformedFile = "test2";
-    //Benytter @BeforeEach for å sørge for at filenw lages før de testes
+    //Benytter @BeforeEach for å sørge for at filene lages før hver test.
     @BeforeEach
     public void setUp() throws IOException {
         HashMap<String, Integer> jsonTest = new HashMap<>();
@@ -24,16 +24,19 @@ public class JsonTest {
         writeJSON(testFile,jsonTest);
         writeJSON(malformedFile,jsonTestMlformed);
     }
+    // Benytter @AfterEach for å slette filer mellom hver test for å opprettholde isolasjon
     @AfterEach
     public void cleanUp() throws IOException {
         Files.deleteIfExists(Paths.get("src/Main/JSON/" + testFile + ".json"));
         Files.deleteIfExists(Paths.get("src/Main/JSON/" + malformedFile + ".json"));
     }
+    //Tester om Jsonfiler eksisterer etter å ha blitt laget
     @Test
     public void jsonCheckIfFileExists() {
         assertTrue(Files.exists(Paths.get("src/Main/JSON/" + testFile +".json")));
         assertTrue(Files.exists(Paths.get("src/Main/JSON/" + malformedFile +".json")));
     }
+    //Tester om Jsonfilen har innhold.
     @Test
     public void jsonCheckIfFileHasContent() {
         String filePath = "src/Main/JSON/" + testFile +".json";
@@ -48,11 +51,13 @@ public class JsonTest {
         }
         assertTrue(fileHasContent);
     }
+    //Tester om innholdet i JSON filen kan parse til en gyldig HashMap
     @Test
     public void jsonCheckFileContents() {
         HashMap testmap = SettingsReader.readJSON(testFile);
         Assertions.assertEquals(1, testmap.get("Test1"));
     }
+    //Tester om en ugyldig Jsonfil gir feil når koden prøver å parse Json til HashMap
     @Test
     public void jsonCheckMalformedFile() {
         boolean fileMalformed;
