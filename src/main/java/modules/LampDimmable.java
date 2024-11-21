@@ -7,7 +7,7 @@ import java.awt.*;
 import java.util.HashMap;
 
 public class LampDimmable extends Lamp {
-    private int brightness = 0;
+    private int brightness = 255;
 
     public LampDimmable(String name){
         super(name);
