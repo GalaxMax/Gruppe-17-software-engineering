@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static settingsSaver.SettingsWriter.writeJSON;
 
 public class JsonTest {
-    String testFile = "test1";
-    String malformedFile = "test2";
+    String testFile = "test" + System.nanoTime();
+    String malformedFile = "maltest" + System.nanoTime();
     //Benytter @BeforeEach for å sørge for at filene lages før hver test.
     @BeforeEach
     public void setUp() throws IOException {
@@ -27,8 +27,13 @@ public class JsonTest {
     // Benytter @AfterEach for å slette filer mellom hver test for å opprettholde isolasjon
     @AfterEach
     public void cleanUp() throws IOException {
-        Files.deleteIfExists(Paths.get("src/Main/JSON/" + testFile + ".json"));
-        Files.deleteIfExists(Paths.get("src/Main/JSON/" + malformedFile + ".json"));
+        try {
+            Files.deleteIfExists(Paths.get("src/Main/JSON/" + testFile + ".json"));
+            Files.deleteIfExists(Paths.get("src/Main/JSON/" + malformedFile + ".json"));
+        } catch (IOException e) {
+            System.err.println("Error cleaning up test files: " + e.getMessage());
+        }
+
     }
     //Tester om Jsonfiler eksisterer etter å ha blitt laget
     @Test
@@ -43,7 +48,6 @@ public class JsonTest {
         boolean fileHasContent;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
-            System.out.println(reader.readLine());
             fileHasContent = reader.readLine() != null;
             reader.close();
         } catch (Exception e) {
@@ -67,6 +71,7 @@ public class JsonTest {
         } catch (Exception e) {
             fileMalformed = true;
         }
+        System.out.println("Accessing file: " + malformedFile + " in " + Thread.currentThread().getName());
         assertTrue(fileMalformed);
     }
 
