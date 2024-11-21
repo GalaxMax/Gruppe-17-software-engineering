@@ -9,11 +9,11 @@ import java.util.HashMap;
 public class LampDimmable extends Lamp {
     private int brightness = 0;
 
-    public LampDimmable(String windowName){
-        super(windowName);
+    public LampDimmable(String name){
+        super(name);
     }
-    public LampDimmable(String windowName, TextModule terminal){  //overloading if terminal access is wanted for the object
-        super(windowName, terminal);
+    public LampDimmable(String name, TextModule terminal){  //overloading if terminal access is wanted for the object
+        super(name, terminal);
     }
 
     public void setBrightness(int newBrightness) {
