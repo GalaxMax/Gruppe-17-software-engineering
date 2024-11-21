@@ -2,28 +2,23 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import modules.ActiveModules;
-import profiles.ProfileDefault;
-import profiles.ProfileOne;
+import profiles.*;
 
 public class SmartInput {
 
-        ProfileDefault profile;
-        ActiveModules activeModules;
+        private int profileNumber=0;
+        private ProfileTemplate profile;
+        private final ActiveModules activeModules;
 
         public SmartInput(ActiveModules activeModules) {
-                KeyHandler kHandler = new KeyHandler();
                 this.activeModules = activeModules;
-                activeModules.remoteControl.outputWindow.addKeyListener(kHandler);
                 this.profile = new ProfileDefault(activeModules);
+
+                KeyHandler kHandler = new KeyHandler();
+                activeModules.remoteControl.outputWindow.addKeyListener(kHandler); //this is the emulated/digital remote controller
         }
 
         public class KeyHandler implements KeyListener{
-
-                @Override
-                public void keyTyped(KeyEvent e) {
-
-                }
-
                 @Override
                 public void keyPressed(KeyEvent e) {
 
@@ -59,16 +54,16 @@ public class SmartInput {
                                         profile.key0();
                                         break;
                                 case KeyEvent.VK_LEFT:
-                                        profile.arrowLeft();
+                                        profile.keyArrowLeft();
                                         break;
                                 case KeyEvent.VK_RIGHT:
-                                        profile.arrowRight();
+                                        profile.keyArrowRight();
                                         break;
                                 case KeyEvent.VK_UP:
-                                        profile.arrowUp();
+                                        profile.keyArrowUp();
                                         break;
                                 case KeyEvent.VK_DOWN:
-                                        profile.arrowDown();
+                                        profile.keyArrowDown();
                                         break;
                                 case KeyEvent.VK_Q:
                                         profile.keyQ();
@@ -100,18 +95,83 @@ public class SmartInput {
                                 case KeyEvent.VK_P:
                                         profile.keyP();
                                         break;
+                                case KeyEvent.VK_A:
+                                        profile.keyA();
+                                        break;
+                                case KeyEvent.VK_S:
+                                        profile.keyS();
+                                        break;
+                                case KeyEvent.VK_D:
+                                        profile.keyD();
+                                        break;
+                                case KeyEvent.VK_F:
+                                        profile.keyF();
+                                        break;
+                                case KeyEvent.VK_G:
+                                        profile.keyG();
+                                        break;
+                                case KeyEvent.VK_H:
+                                        profile.keyH();
+                                        break;
+                                case KeyEvent.VK_J:
+                                        profile.keyJ();
+                                        break;
+                                case KeyEvent.VK_K:
+                                        profile.keyK();
+                                        break;
+                                case KeyEvent.VK_L:
+                                        profile.keyL();
+                                        break;
+                                case KeyEvent.VK_Z:
+                                        profile.keyZ();
+                                        break;
+                                case KeyEvent.VK_X:
+                                        profile.keyX();
+                                        break;
+                                case KeyEvent.VK_C:
+                                        profile.keyC();
+                                        break;
+                                case KeyEvent.VK_V:
+                                        profile.keyV();
+                                        break;
+                                case KeyEvent.VK_B:
+                                        profile = new ProfileDefault(activeModules);
+                                        break;
+                                case KeyEvent.VK_N:
+                                        profile = new ProfileOne(activeModules);
+                                        break;
+                                case KeyEvent.VK_M:
+                                        profile = new ProfileTwo(activeModules);
+                                        break;
+                                case KeyEvent.VK_ENTER:
+                                        profile.profileCycle();
+                                        if(profileNumber==0){
+                                                profileNumber++;
+                                                profile = new ProfileOne(activeModules);
+                                        }
+                                        else if (profileNumber==1) {
+                                                profileNumber++;
+                                                profile = new ProfileTwo(activeModules);
+                                        }
+                                        else if(profileNumber==2){
+                                                profileNumber=0;
+                                                profile = new ProfileDefault(activeModules);
+                                        }
+                                        break;
                                 case KeyEvent.VK_BACK_SPACE:
                                         profile.keyBackSpace();
                                         break;
-                                case KeyEvent.VK_H:
-                                        profile = new ProfileOne(activeModules);
-                                default:
-                                        profile.unnassigned();
+                                default:        //if no method for pressed button, then run this
+                                        profile.unassigned();
                                         break;
                         }
                 }
-                @Override
+                @Override       //necessary overrides
                 public void keyReleased(KeyEvent e) {
+
+                }
+                @Override
+                public void keyTyped(KeyEvent e) {
 
                 }
         }

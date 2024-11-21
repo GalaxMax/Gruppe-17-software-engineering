@@ -2,183 +2,97 @@ package profiles;
 
 import modules.ActiveModules;
 
-public class ProfileDefault {
-    public int tall=0;
-    protected ActiveModules activeModules;
+public class ProfileDefault extends ProfileTemplate{
 
     public ProfileDefault(ActiveModules activeModules){
-    this.activeModules = activeModules;
+        super(activeModules);
+        activeModules.textModule.textLabel.setText("Profile switched to Default");
     }
 
-    public void unnassigned(){
-        activeModules.textOutput.textLabel.setText("This key is unnasigned.");
-    }
-
-    public void arrowUp(){
-        activeModules.textOutput.textLabel.setText("Opp");
-    }
-
-    public void arrowDown(){
-        activeModules.textOutput.textLabel.setText("Ned");
-    }
-
-    public void arrowLeft(){
-        activeModules.textOutput.textLabel.setText("Venstre");
-    }
-
-    public void arrowRight(){
-        activeModules.textOutput.textLabel.setText("Høyre");
-    }
-
+    @Override
     public void key1(){
-        tall+=1;
-        activeModules.textOutput.textLabel.setText(Integer.toString(tall));
+        activeModules.lamp1.lightOn();
+        activeModules.lamp2.lightOn();
+        activeModules.lamp3.lightOn();
     }
 
+    @Override
     public void key2(){
-        tall-=1;
-        activeModules.textOutput.textLabel.setText(Integer.toString(tall));
+        activeModules.lamp1.lightOff();
+        activeModules.lamp2.lightOff();
+        activeModules.lamp3.lightOff();
     }
 
+    @Override
     public void key3(){
-        activeModules.lamp2.toggleLight();
-    }
-
-    public void key4() {
         activeModules.lamp1.toggleLight();
+        activeModules.lamp2.toggleLight();
+        activeModules.lamp3.toggleLight();
     }
 
+    @Override
+    public void key4() {
+        activeModules.door1.doorLock();
+    }
+
+    @Override
     public void key5(){
-        activeModules.textOutput.textLabel.setText("Lys dim opp");
+        activeModules.door1.doorUnlock();
     }
 
+    @Override
     public void key6(){
-        activeModules.textOutput.textLabel.setText("Lys dim ned");
-    }
-
-    public void key7(){
         activeModules.door1.toggleDoorLock();
     }
 
+    @Override
+    public void key7(){
+        activeModules.outlet1.outletOn();
+    }
+
+    @Override
     public void key8(){
-        activeModules.textOutput.textLabel.setText("Åpne/lukke garasjedøra");
+        activeModules.outlet1.outletOff();
     }
 
+    @Override
     public void key9(){
-        activeModules.textOutput.textLabel.setText("Varm bilen");
-    }
-
-    public void key0(){
-        activeModules.textOutput.textLabel.setText("Start kaffemaskina");
-    }
-
-    public void keyQ(){
-        activeModules.textOutput.textLabel.setText("Home-knapp");
-    }
-
-    public void keyW(){
-        activeModules.textOutput.textLabel.setText("OK-knapp");
-    }
-
-    public void keyE(){
-        activeModules.textOutput.textLabel.setText("Tilbake-knapp");
-    }
-
-    public void keyR(){
-        activeModules.textOutput.textLabel.setText("Info-knapp");
-    }
-
-    public void keyT(){
-        activeModules.textOutput.textLabel.setText("Exit-knapp");
-    }
-
-    public void keyY(){
-        activeModules.textOutput.textLabel.setText("Skru-av-knapp");
-    }
-
-    public void keyBackSpace(){
-        activeModules.textOutput.textLabel.setText("Lukker vindu");
-        activeModules.textOutput.outputWindow.dispose();
-    }
-
-    public void keyU(){
         activeModules.outlet1.toggleOutlet();
     }
 
-    public void keyI(){
-
+    @Override
+    public void keyQ(){     //remember to turn on the lights before dimming up
+        activeModules.lamp3.lightDimUp();
     }
 
-    public void keyO(){
-        activeModules.textOutput.textLabel.setText("O");
+    @Override
+    public void keyW(){
+        activeModules.lamp3.lightDimDown();
     }
 
-    public void keyP(){
-        activeModules.textOutput.textLabel.setText("P");
+    @Override
+    public void keyE(){
+        activeModules.HUElamp1.turnOnLight();
     }
 
-    public void keyA(){
-        activeModules.textOutput.textLabel.setText("A");
+    @Override
+    public void keyR(){
+        activeModules.HUElamp1.turnOffLight();
     }
 
-    public void keyS(){
-        activeModules.textOutput.textLabel.setText("S");
+    @Override
+    public void keyT(){
+        activeModules.HUElamp1.toggleLight();
     }
 
-    public void keyD(){
-        activeModules.textOutput.textLabel.setText("d");
+    @Override
+    public void keyY() {
+        activeModules.HUElamp1.dimUp();
     }
 
-    public void keyF(){
-        activeModules.textOutput.textLabel.setText("F");
-    }
-
-    public void keyG(){
-        activeModules.textOutput.textLabel.setText("G");
-    }
-
-    public void keyH(){
-        activeModules.textOutput.textLabel.setText("H");
-    }
-
-    public void keyJ(){
-        activeModules.textOutput.textLabel.setText("J");
-    }
-
-    public void keyK(){
-        activeModules.textOutput.textLabel.setText("K");
-    }
-
-    public void keyL(){
-        activeModules.textOutput.textLabel.setText("L");
-    }
-
-    public void keyZ(){
-        activeModules.textOutput.textLabel.setText("Z");
-    }
-
-    public void keyX(){
-        activeModules.textOutput.textLabel.setText("X");
-    }
-
-    public void keyC(){
-        activeModules.textOutput.textLabel.setText("C");
-    }
-
-    public void keyV(){
-        activeModules.textOutput.textLabel.setText("V");
-    }
-
-    public void keyB(){
-        activeModules.textOutput.textLabel.setText("B");
-    }
-
-    public void keyN(){
-        activeModules.textOutput.textLabel.setText("N");
-    }
-
-    public void keyM(){
-        activeModules.textOutput.textLabel.setText("M");
+    @Override
+    public void keyU() {
+        activeModules.HUElamp1.dimDown();
     }
 }
 

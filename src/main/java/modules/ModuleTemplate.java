@@ -1,23 +1,26 @@
 package modules;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import settingsSaver.SettingsReader;
+import settingsSaver.SettingsWriter;
 
+import javax.swing.*;
+import java.util.HashMap;
 
 public abstract class ModuleTemplate {
     protected boolean state = false;
     protected TextModule terminal;
 
+    public String name;
     public JFrame outputWindow;
     public JPanel label;
     public JLabel textLabel;
+    public HashMap<String, Integer> settings = new HashMap<>();
 
-    ModuleTemplate() {
-        // Overloading dersom man ikke trenger terminal
+    ModuleTemplate() {  //constructor if terminal access is not wanted
+
     }
 
-    ModuleTemplate(TextModule terminal) {
+    ModuleTemplate(TextModule terminal) {   //overloading if terminal access is wanted for the object
         this.terminal = terminal;
     }
 
@@ -25,7 +28,7 @@ public abstract class ModuleTemplate {
         return state;
     }
 
-    public void setState(boolean state) {
+    protected void setState(boolean state) {
         this.state = state;
     }
 
@@ -36,4 +39,23 @@ public abstract class ModuleTemplate {
             System.out.println("Ingen terminal er linket.");
         }
     }
+
+    protected void refresh(){
+    }
+
+    protected boolean loadSettings(){
+        HashMap<String, Integer> savedSettings = SettingsReader.readJSON(this.name);
+
+        if(!savedSettings.isEmpty()) {
+            setState(savedSettings.get("state")==1);
+            return true;
+        }
+        else return false;
+    }
+
+    protected void saveSettings(){
+        settings.put("state", this.state ? 1 : 0);   //quickest way to make boolean into int
+        SettingsWriter.writeJSON(this.name, this.settings);
+    }
+
 }
