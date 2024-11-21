@@ -1,15 +1,11 @@
 package settingsSaver;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
-
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static settingsSaver.SettingsWriter.writeJSON;
@@ -31,6 +27,22 @@ public class JsonTest {
     public void jsonCheckIfFileExists() {
         assertTrue(Files.exists(Paths.get("src/Main/JSON/" + testFile +".json")));
         assertTrue(Files.exists(Paths.get("src/Main/JSON/" + malformedFile +".json")));
+    }
+    @Test
+    public void jsonCheckIfFileHasContent() {
+        String filePath = "src/Main/JSON/" + testFile;
+        boolean fileHasContent;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            if (reader.readLine() == null) {
+                fileHasContent = false;
+            } else {
+                fileHasContent = true;
+            };
+        } catch (Exception e) {
+            fileHasContent = false;
+        }
+        assertTrue(fileHasContent);
     }
     @Test
     public void jsonCheckFileContents() {
