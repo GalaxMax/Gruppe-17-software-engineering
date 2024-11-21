@@ -12,6 +12,12 @@ public class PhilipsHueAPI extends ModuleTemplate {
     private final String lightID;
     private int brightness=255;
 
+    public PhilipsHueAPI(String bridgeIpAddress, String username, String lightID) {
+        this.bridgeIpAddress = bridgeIpAddress;
+        this.username = username;
+        this.lightID = lightID;
+    }
+
     public PhilipsHueAPI(String bridgeIpAddress, String username, String lightID, TextModule terminal) {
         super(terminal);
         this.bridgeIpAddress = bridgeIpAddress;
@@ -27,7 +33,7 @@ public class PhilipsHueAPI extends ModuleTemplate {
         this.brightness = brightness;
     }
 
-    public void turnOnLight() {
+    public int turnOnLight() {
         try {
             terminalAccess("Skrudde på Philips HUE lys");
             return sendLightState(true);
