@@ -16,12 +16,12 @@ public class SettingsReader {
 
         File file = new File(filePath);
         if(file.exists()) {
-            try {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filePath));){
                 //Will try to read a JSON file and read the contents of the file line by line
                 //then format and add said content to a hashmap
                 //if it can't find the file, it will catch an exception
                 System.out.println("Reading file " + filePath);
-                BufferedReader reader = new BufferedReader(new FileReader(filePath));
+
                 String line;
                 while ((line = reader.readLine()) != null) {
                     line = line.trim();
@@ -41,10 +41,7 @@ public class SettingsReader {
 
                         savedSettings.put(key, Integer.valueOf(value));
                     }
-
                 }
-                //closes the reader to save resources
-                reader.close();
 
             } catch (Exception e) {throw new RuntimeException(e);}
         }
